@@ -8,8 +8,8 @@ import { HomeComponent } from './home/home.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
-import { CustomButtonComponent } from './shared/custom-button/custom-button.component';
 import {MatButtonModule} from "@angular/material/button";
+import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 
 
 
@@ -19,7 +19,7 @@ import {MatButtonModule} from "@angular/material/button";
     UserSignupComponent,
     UserProfilComponent,
     HomeComponent,
-    CustomButtonComponent,
+    NavBarComponent,
   ],
   imports: [
     CommonModule,
