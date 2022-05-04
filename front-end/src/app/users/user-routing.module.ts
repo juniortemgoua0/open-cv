@@ -13,11 +13,11 @@ const  routes : Routes = [
   {path : "home" , component : HomeComponent },
   {path : "sign-in" , component : UserSigninComponent},
   {path : "sign-up" , component : UserSignupComponent},
+  {path: 'create-profile', component: CreateProfileComponent},
   {
     path : "user-profile",
     component: UserProfilComponent,
     children: [
-      {path: 'create-profile', component: CreateProfileComponent},
       {path: 'welcome' , component: WelcomeComponent},
       {path: 'who-are-you' , component: WhoAreYouComponent},
       {path: 'what-you-do' , component: WhatYouDoComponent}

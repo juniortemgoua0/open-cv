@@ -8,17 +8,17 @@ import { RouterModule } from "@angular/router";
 @NgModule({
   declarations: [
     FooterComponent,
-    NavBarComponent
+    NavBarComponent,
   ],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule
   ],
-  exports: [
-    MaterialModule,
-    FooterComponent,
-    NavBarComponent,
-  ]
+    exports: [
+        MaterialModule,
+        FooterComponent,
+        NavBarComponent,
+    ]
 })
 export class SharedModule { }

@@ -14,6 +14,8 @@ import { WhoAreYouComponent } from './user-profil/who-are-you/who-are-you.compon
 import { ProfileBannerComponent } from './shared/profile-banner/profile-banner.component';
 import { CreateProfileComponent } from './user-profil/create-profile/create-profile.component';
 import { WelcomeComponent } from './user-profil/welcome/welcome.component';
+import {StepCountComponent} from "./shared/step-count/step-count.component";
+import {WhatYouDoComponent} from "./user-profil/what-you-do/what-you-do.component";
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { WelcomeComponent } from './user-profil/welcome/welcome.component';
     ProfileBannerComponent,
     CreateProfileComponent,
     WelcomeComponent,
+    WhatYouDoComponent,
+    StepCountComponent
   ],
   imports: [
     CommonModule,
