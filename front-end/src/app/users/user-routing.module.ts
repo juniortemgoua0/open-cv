@@ -7,6 +7,7 @@ import {UserProfilComponent} from "./user-profil/user-profil.component";
 import {WhoAreYouComponent} from "./user-profil/who-are-you/who-are-you.component";
 import {CreateProfileComponent} from "./user-profil/create-profile/create-profile.component";
 import {WelcomeComponent} from "./user-profil/welcome/welcome.component";
+import {WhatYouDoComponent} from "./user-profil/what-you-do/what-you-do.component";
 
 const  routes : Routes = [
   {path : "home" , component : HomeComponent },
@@ -14,11 +15,12 @@ const  routes : Routes = [
   {path : "sign-up" , component : UserSignupComponent},
   {
     path : "user-profile",
+    component: UserProfilComponent,
     children: [
-      {path: '' , component: UserProfilComponent},
       {path: 'create-profile', component: CreateProfileComponent},
       {path: 'welcome' , component: WelcomeComponent},
-      {path: 'qui-etes-vous' , component: WhoAreYouComponent}
+      {path: 'who-are-you' , component: WhoAreYouComponent},
+      {path: 'what-you-do' , component: WhatYouDoComponent}
     ]
   }
 ]
