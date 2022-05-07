@@ -1,0 +1,38 @@
+.content{
+  background-color: #F9F9F9;
+}
+
+.sub-container{
+
+}
+
+.profile_shape{
+  background-image: url("/assets/images/profile_shape_bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 600px;
+}
+
+.profile_shape_left_bg {
+  background-image: url("/assets/images/profile_shape_left.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.profile_shape_right_bg {
+  background-image: url("/assets/images/profile_shape_right.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+//.profile_shape_bg{
+//  position: absolute;
+//  top: 0;
+//  right: 0;
+//  bottom: 0;
+//  left: 0;
+//}
+
