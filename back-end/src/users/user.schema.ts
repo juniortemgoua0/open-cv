@@ -1,6 +1,8 @@
 import { Prop, raw, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Document } from 'mongoose';
+import { Document } from "mongoose";
 import { IsEmail, IsNotEmpty, IsString } from "class-validator";
+import * as mongoose from "mongoose";
+import { UserProfile } from "../user-profile/user-profile.schema";
 
 export type UserDocument = User & Document;
 
@@ -11,9 +13,9 @@ export class User {
   @IsString()
   username: string;
 
-  @Prop({ required: true, unique: true })
   @IsNotEmpty()
   @IsEmail()
+  @Prop({ required: true, })
   email: string;
 
   @Prop({ required: true })
@@ -25,6 +27,8 @@ export class User {
   @Prop({ required: true, default: Date.now() })
   updatedAt: Date;
 
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: "UserProfile" })
+  userProfile: UserProfile;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
