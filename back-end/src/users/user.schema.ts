@@ -1,7 +1,6 @@
+/* eslint-disable prettier/prettier */
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
-import * as mongoose from 'mongoose';
-import { UserProfile } from '../user-profile/user-profile.schema';
 
 export type UserDocument = User & Document;
 

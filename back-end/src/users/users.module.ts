@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Global, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 
@@ -6,12 +7,11 @@ import { UsersController } from './users.controller';
 import { UserSchema } from './user.schema';
 import { UserProfileSchema } from '../user-profile/user-profile.schema';
 
+@Global()
 @Module({
   imports: [
     MongooseModule.forFeature([
-      { name: 'User', schema: UserSchema },
-      { name: 'UserProfile', schema: UserProfileSchema },
-    ]),
+      { name: 'User', schema: UserSchema }    ]),
   ],
   controllers: [UsersController],
   providers: [UsersService],

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -11,4 +12,6 @@ export class UsersService {
   async findOne(dto: SigninDto): Promise<User> {
     return this.userModel.findOne({ ...dto });
   }
+
+ 
 }
