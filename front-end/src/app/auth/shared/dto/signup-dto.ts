@@ -1,5 +1,4 @@
-export interface IUser {
-  id: string;
+export interface SignupDto {
   username: string;
   email: string;
   password: string;

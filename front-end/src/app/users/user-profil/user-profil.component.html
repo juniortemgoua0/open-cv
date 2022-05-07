@@ -4,21 +4,21 @@
        style="flex: 1; background-color: #F9F9F9">
     <div class="shadow-lg bg-white w-100 h-100 rounded-2 overflow-scroll">
       <div class="navigation w-100 d-flex align-items-center px-5 py-4">
-        <div class="">
+        <div #welcome>
           <button mat-button routerLink="welcome" class="fs-6 fw-bold px-3 ">Bienvenue</button>
-          <div class="w-100" style="height: 4px; background-color:#66A4B0; "></div>
+          <div class="nav_divider" ></div>
         </div>
-        <div class="">
-          <button mat-button routerLink="who-are-you" class="fs-6 fw-bold px-3 text-black-50">Qui etes vous?</button>
-          <div class="w-100 d-none" style="height: 4px; background-color:#66A4B0; "></div>
+        <div  #who_are_you  >
+          <button mat-button routerLink="who-are-you"  class="fs-6 fw-bold px-3 text-black-50">Qui etes vous?</button>
+          <div class="nav_divider" ></div>
         </div>
-        <div class="">
-          <button mat-button routerLink="what-you-do" class="fs-6 fw-bold px-3 text-black-50">Que faites vous?</button>
-          <div class="w-100 d-none" style="height: 4px; background-color:#66A4B0; "></div>
+        <div #what_you_do>
+          <button mat-button routerLink="what-you-do"  class="fs-6 fw-bold px-3 text-black-50">Que faites vous?</button>
+          <div class="nav_divider" ></div>
         </div>
       </div>
       <div class="px-5 py-3 ">
-        <router-outlet></router-outlet>
+        <router-outlet (activate)="componentAdded($event)"></router-outlet>
       </div>
     </div>
   </div>

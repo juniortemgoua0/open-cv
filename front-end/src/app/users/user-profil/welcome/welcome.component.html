@@ -1,3 +1,37 @@
 <div class="w-100">
   <app-step-count [countState]="1"></app-step-count>
+  <div class="mt-3">
+    <div class="d-flex justify-content-start ">
+      <img src="assets/images/waving_hand_icon.svg" class="me-2" height="32" alt="">
+      <p class="fs-3 fw-bold mt-2">Bienvenue sur OpenCv</p>
+    </div>
+    <p class="text-black-50 mt-3" style="max-width: 700px">Avoir une description de votre personne nous permmettra de
+      mettre a votre disposition
+      le type de cv correspondant a votre profil.</p>
+
+    <p class="fs-6 fw-bold mt-3">Votre genre</p>
+    <div class="mt-3 d-flex justify-content-start align-items-center">
+      <button #man mat-stroked-button class="px-5 position-relative"><img src="assets/images/man_outlined_icon.svg" alt="">
+        <input type="radio" name="genre" class=" position-absolute w-100 h-100 opacity-0"
+               style=" top: 0; bottom: 0; right: 0; left: 0;"
+        value="homme" [formControl]="genre">
+        Homme
+      </button>
+      <button #woman mat-stroked-button class="ms-4 px-5 position-relative"><img src="assets/images/woman_outlined_icon.svg" alt="">
+        <input type="radio" name="genre" class=" w-100 h-100 position-absolute opacity-0"
+               style="top: 0; bottom: 0; right: 0; left: 0;" value="femme" [formControl]="genre">
+        Femme
+      </button>
+    </div>
+
+    <div class="d-flex justify-content-end mt-3">
+      <button routerLink="/user-profile/who-are-you" mat-flat-button
+              style="height: 50px; background-color: var(--primary-color); color: white"
+              class="px-4"
+              (click)="onNext()"
+      [disabled]="genre.value === null">
+        Continuer
+      </button>
+    </div>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { AuthDto, SignupDto } from './dto';
+import { SigninDto, SignupDto } from './dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { UserDocument } from '../users/user.schema';
@@ -8,17 +8,14 @@ import { UserDocument } from '../users/user.schema';
 export class AuthService {
   constructor(@InjectModel('User') private UserModel: Model<UserDocument>) {}
 
-  signIn(dto: AuthDto) {
+  signIn(dto: SigninDto) {
     return { msg: 'I am sign in' };
   }
 
   async signUp(dto: SignupDto) {
     const createUser = new this.UserModel({
       ...dto,
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
     });
-    const user = await createUser.save();
-    return { userId: user._id };
+    return createUser.save();
   }
 }

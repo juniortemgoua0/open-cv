@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { UserSigninComponent } from './user-signin/user-signin.component';
-import { UserSignupComponent } from './user-signup/user-signup.component';
 import { UserProfilComponent } from './user-profil/user-profil.component';
-import {UserRoutingModule} from "./user-routing.module";
+import {UsersRoutingModule} from "./users-routing.module";
 import { HomeComponent } from './home/home.component';
 import {SharedModule} from "../shared/shared.module";
 import { HomeSectionOneComponent } from './home/home-section-one/home-section-one.component';
@@ -19,8 +16,6 @@ import {WhatYouDoComponent} from "./user-profil/what-you-do/what-you-do.componen
 
 @NgModule({
   declarations: [
-    UserSigninComponent,
-    UserSignupComponent,
     UserProfilComponent,
     HomeComponent,
     HomeSectionOneComponent,
@@ -35,10 +30,9 @@ import {WhatYouDoComponent} from "./user-profil/what-you-do/what-you-do.componen
     StepCountComponent
   ],
   imports: [
-    CommonModule,
     SharedModule,
-    UserRoutingModule,
+    UsersRoutingModule,
   ],
-  exports : [UserRoutingModule]
+  exports : []
 })
 export class UsersModule { }

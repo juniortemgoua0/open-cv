@@ -16,14 +16,11 @@ export class User {
   @Prop()
   password: string;
 
-  @Prop()
-  createdAt: number = Date.now();
+  @Prop({ required: true, default: Date.now() })
+  createdAt: number;
 
-  @Prop()
-  updatedAt: number = Date.now();
-
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'UserProfile' })
-  userProfile: UserProfile;
+  @Prop({ required: true, default: Date.now() })
+  updatedAt: number;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

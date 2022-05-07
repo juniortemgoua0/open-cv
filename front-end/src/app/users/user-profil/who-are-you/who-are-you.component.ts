@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {map} from "rxjs";
 
 @Component({
   selector: 'app-who-are-you',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WhoAreYouComponent implements OnInit {
 
-  constructor() { }
+  constructor( private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }

@@ -1,9 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FooterComponent } from './footer/footer.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FooterComponent} from './footer/footer.component';
 import {NavBarComponent} from "./nav-bar/nav-bar.component";
 import {MaterialModule} from "../material/material.module";
-import { RouterModule } from "@angular/router";
+import {RouterModule} from "@angular/router";
+import { ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -13,12 +15,18 @@ import { RouterModule } from "@angular/router";
   imports: [
     CommonModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-    exports: [
-        MaterialModule,
-        FooterComponent,
-        NavBarComponent,
-    ]
+  exports: [
+    CommonModule,
+    MaterialModule,
+    FooterComponent,
+    NavBarComponent,
+    ReactiveFormsModule,
+    HttpClientModule
+  ]
 })
-export class SharedModule { }
+export class SharedModule {
+}
