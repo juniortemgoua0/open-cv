@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WhatYouDoComponent } from './what-you-do.component';
+import { DashboardSidebarComponent } from './dashboard-sidebar.component';
 
-describe('WhatYouDoComponent', () => {
-  let component: WhatYouDoComponent;
-  let fixture: ComponentFixture<WhatYouDoComponent>;
+describe('DashboardSidebarComponent', () => {
+  let component: DashboardSidebarComponent;
+  let fixture: ComponentFixture<DashboardSidebarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WhatYouDoComponent ]
+      declarations: [ DashboardSidebarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WhatYouDoComponent);
+    fixture = TestBed.createComponent(DashboardSidebarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

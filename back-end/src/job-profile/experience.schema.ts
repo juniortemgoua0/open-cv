@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import {Document} from 'mongoose';
-
+import { Realisation } from './realisation.schema';
+import * as mongoose from 'mongoose';
 export type ExperienceDocument = Experience & Document;
 
 @Schema()
@@ -27,6 +28,9 @@ export class Experience{
 
     @Prop({required:true})
     description:string;
+
+    @Prop({type: [{type:mongoose.Schema.Types.ObjectId, ref:'Realisation'} ] ,default:[]})
+     realisation:Realisation[];
     
 }
 

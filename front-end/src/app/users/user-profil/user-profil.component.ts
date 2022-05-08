@@ -1,5 +1,7 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ContentChild, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {WelcomeComponent} from "./welcome/welcome.component";
+import {UserProfileStepToken} from "../shared/user-profile-step.token";
+import {UserProfileStepInterface} from "../shared/user-profile-step.interface";
 
 @Component({
   selector: 'app-users-profil',
@@ -12,6 +14,8 @@ export class UserProfilComponent implements OnInit {
   @ViewChild('who_are_you', {static:true}) WhoAreYouNav!: ElementRef<HTMLDivElement>;
   @ViewChild('what_you_do', {static:true}) WhatYoudoNav!: ElementRef<HTMLDivElement>;
   currentChildRoute!: any
+
+  @ViewChild(UserProfileStepToken , {static: true}) stepContent!: UserProfileStepInterface
 
   constructor() {
   }
@@ -26,6 +30,7 @@ export class UserProfilComponent implements OnInit {
         }
       )
     })
+    console.log(this.stepContent)
     this.controlNavEvolution()
   }
 

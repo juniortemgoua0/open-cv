@@ -3,17 +3,24 @@ import {ActivatedRoute} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {generate} from "rxjs";
 import {MatButton} from "@angular/material/button";
+import {UserProfileStepInterface} from "../../shared/user-profile-step.interface";
+import {UserProfileStepToken} from "../../shared/user-profile-step.token";
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.scss']
+  styleUrls: ['./welcome.component.scss'],
+  providers: [
+    {provide: UserProfileStepToken , useExisting: WelcomeComponent}
+  ]
 })
-export class WelcomeComponent implements OnInit {
+export class WelcomeComponent implements OnInit , UserProfileStepInterface {
 
   genre!: FormControl
   @ViewChild('man', {static: true}) man!: MatButton
   @ViewChild('woman', {static: true}) woman!: MatButton
+
+  stateRoute: string = 'welcome'
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder) {
   }

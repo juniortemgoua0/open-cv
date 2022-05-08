@@ -37,12 +37,13 @@ import {
 export class JobProfileService {
   constructor(
     @InjectModel('UserProfile') private UserProfileModel: Model < UserProfileDocument > ,
-    @InjectModel('JobProfile') private JobProfileModel: Model < JobProfileDocument > ,
-    @InjectModel('Experience') private ExperienceModel: Model < ExperienceDocument > ,
-    @InjectModel('Formation') private FormationModel: Model < FormationDocument > ,
-    @InjectModel('Competence') private Competence: Model < CompetenceDocument > ,
-    @InjectModel('Realisation') private Realisation: Model < RealisationDocument >
-  ) {}
+    @InjectModel("JobProfile") private JobProfileModel: Model<JobProfileDocument>,
+    @InjectModel("Experience") private ExperienceModel: Model<ExperienceDocument>,
+    @InjectModel("Formation") private FormationModel: Model<FormationDocument>,
+    @InjectModel("Competence") private CompetenceModel: Model<CompetenceDocument>,
+    @InjectModel("Realisation") private RealisationModel: Model<RealisationDocument>
+  ) {
+  }
 
   async createJobProfile(jobProfile: JobProfile, idUser: string) {
     const createdJobProfile = new this.JobProfileModel(jobProfile);
@@ -59,21 +60,122 @@ export class JobProfileService {
 
   }
 
-  /*addExperience(experience: Experience, idJobProfile: string) {
-    
+  async addExperience(experience: Experience, idJobProfile: string) {
+    const createdExperience = new this.ExperienceModel(experience);
+    const idNewExperience = (await (createdExperience.save()))._id;
+    return this.JobProfileModel.findByIdAndUpdate(
+      idJobProfile,
+      {
+        $push: { experience: idNewExperience }
+      },
+      { new: true, upsert: true }
+    );
   }
 
-  addFormation(formation: Formation, idJobProfile: string) {
-
+  async addFormation(formation: Formation, idJobProfile: string) {
+    const createdFormation = new this.FormationModel(formation);
+    const idNewFormation = (await createdFormation.save())._id;
+    return this.JobProfileModel.findByIdAndUpdate(
+      idJobProfile,
+      {
+        $push: {
+          formation: idNewFormation
+        }
+      },
+      { new: true, upsert: true }
+    );
   }
 
-  addCompetence(competence: Competence, idJobProfile: string) {
-
+  async addCompetence(competence: Competence, idJobProfile: string) {
+    const createdCompetence = new this.CompetenceModel(competence);
+    const idNewCompetence = (await createdCompetence.save())._id;
+    return this.JobProfileModel.findByIdAndUpdate(
+      idJobProfile,
+      {
+        $push: {
+          competence: idNewCompetence
+        }
+      },
+      { new: true, upsert: true }
+    );
   }
 
-  addRealisation(realisation: Realisation, idJobProfile: string) {
+  
+   async addRealisation(realisation: Realisation, idExperience: string) {
+     const createdRealisation = new this.RealisationModel(realisation);
+     const idNewRealisation = (await createdRealisation.save())._id;
 
-  }*/
+     return this.ExperienceModel.findByIdAndUpdate(
+       idExperience,
+       {
+         $push:{
+           realisation: idNewRealisation
+         }
+       },
+       {
+         new:true, upsert:true
+       }
+     );
+   }
+
+   async updateExperience(experience: Experience, idExperience: string) {
+   return this.ExperienceModel.findByIdAndUpdate(
+     idExperience,
+     {
+       $set:{
+        ...experience
+       }
+     },
+     {
+       new:true, upsert:true
+     }
+   );
+  }
+
+    updateFormation(formation: Formation, idFormation: string) {
+
+      return this.FormationModel.findByIdAndUpdate(
+        idFormation,
+        {
+          $set:
+          {
+            ...formation
+          }
+        },
+        {new:true,upsert:true}
+      );
+
+    }
+
+    updateCompetence(competence: Competence, idCompetence: string) {
+
+      return this.CompetenceModel.findByIdAndUpdate(
+        idCompetence,
+        {
+          $set:{
+            ...competence
+          }
+        },
+        {
+          new :true,upsert:true
+        }
+      );
+    }
+
+    updateRealisation(realisation: Realisation, idRealisation: string) {
+
+      return this.RealisationModel.findByIdAndUpdate(
+        idRealisation,
+        {
+          $set:{
+            ...realisation
+          }
+        },
+        {
+          new :true , upsert: true
+        }
+      );
+    }
 
 
 

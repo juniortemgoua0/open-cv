@@ -1,15 +1,17 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Param, Post } from "@nestjs/common";
 import { UsersService } from './users.service';
 
 @Controller('users')
 export class UsersController {
   constructor(private userService: UsersService) {}
+
   @Get('')
-  findOne() {
-    return this.userService.findOne({
-      email: 'junior@gmail.com',
-      password: '123',
-    });
+  findAll(){
+    return this.userService.findAll();
+  }
+  @Get('/:id')
+  findOne( @Param('id') id: string) {
+    return this.userService.findOne(id);
   }
 }
