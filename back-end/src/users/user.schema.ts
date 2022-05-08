@@ -8,16 +8,16 @@ export type UserDocument = User & Document;
 
 @Schema()
 export class User {
-  @Prop({ required: true })
-  @IsNotEmpty()
-  @IsString()
+  @Prop({ required: true, default: "" })
   username: string;
 
   @IsNotEmpty()
   @IsEmail()
-  @Prop({ required: true, })
+  @Prop({ required: true })
   email: string;
 
+  @IsNotEmpty()
+  @IsString()
   @Prop({ required: true })
   password: string;
 

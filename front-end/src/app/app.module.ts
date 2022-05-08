@@ -6,6 +6,7 @@ import {UsersModule} from "./users/users.module";
 import {SharedModule} from "./shared/shared.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {AuthModule} from "./auth/auth.module";
+import {CvModule} from "./cv/cv.module";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {AuthModule} from "./auth/auth.module";
     AppRoutingModule,
     UsersModule,
     AuthModule,
+    CvModule
   ],
   providers: [],
   bootstrap: [AppComponent]

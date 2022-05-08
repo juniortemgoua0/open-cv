@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Post } from "@nestjs/common";
+import { Body, Controller, Param, Post, Put } from "@nestjs/common";
 import { JobProfileService } from "./job-profile.service";
 import { JobProfile } from "./job-profile.schema";
 import { Experience } from "./experience.schema";
@@ -32,7 +32,7 @@ export class JobProfileController {
     @Body() formation: Formation,
     @Param("id-job-profile") idJobProfile: string
   ) {
-    return this.jobProfileService.addFormation(formation, idJobProfile)
+    return this.jobProfileService.addFormation(formation, idJobProfile);
   }
 
   @Post("add-competence/:id-job-profile")
@@ -40,7 +40,7 @@ export class JobProfileController {
     @Body() competence: Competence,
     @Param("id-job-profile") idJobProfile: string
   ) {
-    return this.jobProfileService.addCompetence( competence , idJobProfile)
+    return this.jobProfileService.addCompetence(competence, idJobProfile);
   }
 
   @Post("add-realisation/:id-job-profile")
@@ -48,6 +48,38 @@ export class JobProfileController {
     @Body() realisation: Realisation,
     @Param("id-job-profile") idJobProfile: string
   ) {
-    return this.jobProfileService.addRealisation( realisation , idJobProfile)
+    return this.jobProfileService.addRealisation(realisation, idJobProfile);
+  }
+
+  @Put("update-experience/:id-job-profile")
+  updateExperience(
+    @Body() experience: Experience,
+    @Param("id-job-profile") idJobProfile: string
+  ) {
+    return this.jobProfileService.updateExperience(experience, idJobProfile);
+  }
+
+  @Put("update-formation/:id-job-profile")
+  updateFormation(
+    @Body() formation: Formation,
+    @Param("id-job-profile") idJobProfile: string
+  ) {
+    return this.jobProfileService.updateFormation(formation, idJobProfile);
+  }
+
+  @Put("update-competence/:id-job-profile")
+  updateCompetence(
+    @Body() competence: Competence,
+    @Param("id-job-profile") idJobProfile: string
+  ) {
+    return this.jobProfileService.updateCompetence(competence, idJobProfile);
+  }
+
+  @Put("add-realisation/:id-job-profile")
+  updateRealisation(
+    @Body() realisation: Realisation,
+    @Param("id-job-profile") idJobProfile: string
+  ) {
+    return this.jobProfileService.updateRealisation(realisation, idJobProfile);
   }
 }
