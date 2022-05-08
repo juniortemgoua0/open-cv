@@ -12,13 +12,13 @@ export class JobProfile {
   @Prop({ required: true })
   category: string;
 
-  @Prop({type: [{type:mongoose.Schema.Types.ObjectId, ref:'Competence'}]})
+  @Prop({type: [{type:mongoose.Schema.Types.ObjectId, ref:'Competence'} ] ,default:[]})
   competence:Competence[];
 
-  @Prop({type: [{type:mongoose.Schema.Types.ObjectId, ref:'Experience'}]})
+  @Prop({type: [{type:mongoose.Schema.Types.ObjectId, ref:'Experience'} ] ,default:[]})
   experience:Experience[];
 
-  @Prop({type: [{type:mongoose.Schema.Types.ObjectId, ref:'Formation'}]})
+  @Prop({type: [{type:mongoose.Schema.Types.ObjectId, ref:'Formation'} ] ,default:[]})
   formation:Formation[];
 
 
