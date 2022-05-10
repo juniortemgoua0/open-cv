@@ -2,8 +2,7 @@
 import { Competence } from "./competence.schema";
 import { Experience } from "./experience.schema";
 import { Formation } from "./formation.schema";
-import { UserProfile } from "./user-profile.schema";
-
+import { UserProfile } from "../user-profile/user-profile.schema";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
 import * as mongoose from "mongoose";
