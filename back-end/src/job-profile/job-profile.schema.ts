@@ -2,6 +2,7 @@
 import { Competence } from "./competence.schema";
 import { Experience } from "./experience.schema";
 import { Formation } from "./formation.schema";
+import { Cv } from "../cv/cv.schema";
 import { UserProfile } from "../user-profile/user-profile.schema";
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
@@ -25,6 +26,10 @@ export class JobProfile {
 
   @Prop({required:true})
   userProfile:UserProfile;
+
+  @Prop({type: {type:mongoose.Schema.Types.ObjectId, ref:'JobProfile'}, default:''})
+  cvModel: Cv;
+
 }
 
 export const JobProfileSchema = SchemaFactory.createForClass(JobProfile);

@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-import { User } from './../users/user.schema';
 import { JobProfile } from 'src/job-profile/job-profile.schema';
 import { Prop, Schema,raw, SchemaFactory } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
