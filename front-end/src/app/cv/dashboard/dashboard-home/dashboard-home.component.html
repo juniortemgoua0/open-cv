@@ -1,1 +1,83 @@
-<p>dashboard-home works!</p>
+<div class="w-100 ">
+  <div class="d-flex align-items-center px-3 justify-content-between">
+    <div class="d-flex align-items-center ">
+      <div class="fs-5 fw-bold me-2">Bonjour <span style="color: var(--primary-color)">Junior</span></div>
+      <img src="assets/images/waving_hand_icon.svg" height="20" alt="">
+    </div>
+
+    <div>
+     <span>Objectif : Emploi
+       <span class="rounded-3 bg-opacity-10 px-1 text-black-50 mx-1"
+             style="background-color: var(--primary-color)">Informatique</span>
+        <span class="rounded-3 bg-opacity-10 px-1 text-black-50 mx-1"
+              style="background-color: var(--primary-color)">France</span>
+       <span style="color: var(--primary-color)" class="fw-light pointer"> Mettre a jour</span>
+     </span>
+    </div>
+  </div>
+
+  <div class="w-100 row  mt-4 d-flex ">
+    <div class="col-6 col-sm-12 col-md-6 p-3">
+      <app-card-wrapper>
+        <div class="d-flex justify-content-between align-items-center" header>
+          <span class="fs-5">Mes CV</span>
+          <button mat-flat-button
+                  style="background-color: var(--primary-color)"
+                  class="text-white">Creer un cv
+          </button>
+        </div>
+        <div class="d-flex flex-column col-10" body>
+          <app-cv-item class="mt-3" [isInDashboard]="true"></app-cv-item>
+          <app-cv-item class="mt-3" [isInDashboard]="true"></app-cv-item>
+          <app-cv-item class="mt-3" [isInDashboard]="true"></app-cv-item>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-3" footer>
+          <button routerLink="/dashboard/document" mat-button style="color: var(--primary-color)" class=" fw-bold">VOIR
+            TOUS MES CV
+          </button>
+        </div>
+      </app-card-wrapper>
+    </div>
+    <div class="col-6 col-sm-12 col-md-6 p-3" style="">
+      <app-card-wrapper>
+        <div class="d-flex justify-content-between align-items-center" header>
+          <span class="fs-5"> Offres d'emplois</span>
+        </div>
+        <div class="d-flex flex-column w-100" body>
+          <span class="fs-6 fw-bold mt-4">Chercher des offres qui vous correspondent</span>
+          <div class="d-flex flex-column mt-3 w-100">
+            <mat-form-field class="w-100 " appearance="outline">
+              <mat-label>Lieu</mat-label>
+              <input matInput placeholder="Lieu(Ville, departement...)">
+            </mat-form-field>
+            <mat-form-field class="w-100 " appearance="outline">
+              <mat-label>Mots-cles</mat-label>
+              <input matInput placeholder="Mots-cles(metier, secteur...)">
+            </mat-form-field>
+
+            <div class="d-flex justify-content-end w-100 ">
+              <button mat-flat-button style="background-color: var(--primary-color); color: white">
+                LANCER LA RECHERCHE
+              </button>
+            </div>
+          </div>
+          <div class="border-top w-100 py-2 mt-3">
+            <div class="d-flex justify-content-between">
+              <span class="fw-bold"> Developpeur Web H/F <span
+                class="rounded-3 bg-opacity-10 px-1 text-black-50 mx-1 fw-light"
+                style="background-color: #c1c1c1">Autres</span> </span>
+              <span class="fw-bold" style="color: var(--primary-color)">VOIR</span>
+            </div>
+            <div class="fw-light mt-2">Dangote</div>
+            <div style="font-size: 12px" class="mt-2"><span class="fw-light">Douala</span> <span
+              class="text-black-50 fw-light ms-3">il y'a 14 jours</span></div>
+            <div></div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-3" footer>
+          <button mat-button routerLink="/dashboard/job-offer"  style="color: var(--primary-color)" class=" fw-bold">VOIR PLUS D'OFFRES</button>
+        </div>
+      </app-card-wrapper>
+    </div>
+  </div>
+</div>
