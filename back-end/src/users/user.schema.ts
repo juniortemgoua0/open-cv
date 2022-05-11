@@ -1,4 +1,5 @@
-import { Prop, raw, Schema, SchemaFactory } from "@nestjs/mongoose";
+/* eslint-disable prettier/prettier */
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { Document } from "mongoose";
 import { IsEmail, IsNotEmpty, IsString } from "class-validator";
 import * as mongoose from "mongoose";

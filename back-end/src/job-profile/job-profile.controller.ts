@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Body, Controller, Param, Post, Put } from "@nestjs/common";
 import { JobProfileService } from "./job-profile.service";
 import { JobProfile } from "./job-profile.schema";
@@ -11,75 +12,78 @@ export class JobProfileController {
   constructor(private jobProfileService: JobProfileService) {
   }
 
-  @Post("create/:id-user")
+  @Post("create/:iduser")
   createJobProfile(
     @Body() jobProfile: JobProfile,
-    @Param("id-user") idUser: string
+    @Param("iduser") idUser: string
   ) {
     return this.jobProfileService.createJobProfile(jobProfile, idUser);
   }
 
-  @Post("add-experience/:id-job-profile")
+  @Post("add-experience/:idJobProfile")
   addExperience(
     @Body() experience: Experience,
-    @Param("id-job-profile") idJobProfile: string
+    @Param("idJobProfile") idJobProfile: string
   ) {
     return this.jobProfileService.addExperience(experience, idJobProfile);
   }
 
-  @Post("add-formation/:id-job-profile")
+  @Post("add-formation/:idJobProfile")
   addFormation(
     @Body() formation: Formation,
-    @Param("id-job-profile") idJobProfile: string
+    @Param("idJobProfile") idJobProfile: string
   ) {
     return this.jobProfileService.addFormation(formation, idJobProfile);
   }
 
-  @Post("add-competence/:id-job-profile")
+  @Post("add-competence/:idJobProfile")
   addCompetence(
     @Body() competence: Competence,
-    @Param("id-job-profile") idJobProfile: string
+    @Param("idJobProfile") idJobProfile: string
   ) {
     return this.jobProfileService.addCompetence(competence, idJobProfile);
   }
 
-  @Post("add-realisation/:id-job-profile")
+   @Post("add-realisation/:idExperience")
   addRealisation(
     @Body() realisation: Realisation,
-    @Param("id-job-profile") idJobProfile: string
+    @Param("idExperience") idExperience: string
   ) {
-    return this.jobProfileService.addRealisation(realisation, idJobProfile);
+    return this.jobProfileService.addRealisation(realisation, idExperience);
   }
 
-  @Put("update-experience/:id-job-profile")
+   @Put("update-experience/:idExperience")
   updateExperience(
     @Body() experience: Experience,
-    @Param("id-job-profile") idJobProfile: string
+    @Param("idExperience") idNewExperience: string
   ) {
-    return this.jobProfileService.updateExperience(experience, idJobProfile);
+    return this.jobProfileService.updateExperience(experience, idNewExperience);
   }
 
-  @Put("update-formation/:id-job-profile")
-  updateFormation(
-    @Body() formation: Formation,
-    @Param("id-job-profile") idJobProfile: string
-  ) {
-    return this.jobProfileService.updateFormation(formation, idJobProfile);
-  }
-
-  @Put("update-competence/:id-job-profile")
+   @Put("update-competence/:idCompetence")
   updateCompetence(
     @Body() competence: Competence,
-    @Param("id-job-profile") idJobProfile: string
+    @Param("idCompetence") idNewCompetence: string
   ) {
-    return this.jobProfileService.updateCompetence(competence, idJobProfile);
+    return this.jobProfileService.updateCompetence(competence, idNewCompetence);
   }
 
-  @Put("add-realisation/:id-job-profile")
+   @Put("update-formation/:idFormation")
+  updateFormation(
+    @Body() formation: Formation,
+    @Param("idFormation") idNewFormation: string
+  ) {
+    return this.jobProfileService.updateFormation(formation, idNewFormation);
+  }
+
+  @Put("update-realisation/:idRealisation")
   updateRealisation(
     @Body() realisation: Realisation,
-    @Param("id-job-profile") idJobProfile: string
+    @Param("idRealisation") idNewRealisation: string
   ) {
-    return this.jobProfileService.updateRealisation(realisation, idJobProfile);
+    return this.jobProfileService.updateRealisation(realisation, idNewRealisation);
   }
+  
+
+
 }
