@@ -1,13 +1,14 @@
 /* eslint-disable prettier/prettier */
 import { Global, Module } from "@nestjs/common";
-import { MongooseModule } from "@nestjs/mongoose";
-import { UsersModule } from "./users/users.module";
-import { UserProfileModule } from "./user-profile/user-profile.module";
-import { AuthModule } from "./auth/auth.module";
-import { CvModule } from "./cv/cv.module";
-import { ConfigModule } from "@nestjs/config";
-import { JobProfileModule } from "./job-profile/job-profile.module";
 import { JwtModule } from "@nestjs/jwt";
+import { MongooseModule } from '@nestjs/mongoose';
+import { UsersModule } from './users/users.module';
+import { UserProfileModule } from './user-profile/user-profile.module';
+import { AuthModule } from './auth/auth.module';
+import { CvModule } from './cv/cv.module';
+import { ConfigModule } from '@nestjs/config';
+import { JobProfileModule } from './job-profile/job-profile.module';
+import { RecommandationModule } from './recommandation/recommandation.module';
 
 @Global()
 @Module({
@@ -22,7 +23,8 @@ import { JwtModule } from "@nestjs/jwt";
     UserProfileModule,
     AuthModule,
     CvModule,
-    JobProfileModule
+    JobProfileModule,
+    RecommandationModule,
   ],
   controllers: [],
   providers: [],
