@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { CvModule } from './cv/cv.module';
 import { ConfigModule } from '@nestjs/config';
 import { JobProfileModule } from './job-profile/job-profile.module';
+import { RecommandationModule } from './recommandation/recommandation.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { JobProfileModule } from './job-profile/job-profile.module';
     AuthModule,
     CvModule,
     JobProfileModule,
+    RecommandationModule,
   ],
   controllers: [],
   providers: []
