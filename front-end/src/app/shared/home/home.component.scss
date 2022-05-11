@@ -1,0 +1,40 @@
+.first_section{
+  color: white;
+  background-image: url("/assets/images/firstSectionBg.png");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+
+  .decoration{
+    position: absolute;
+    top: 10%;
+    bottom: 2%;
+    left: 0;
+    right: 30%;
+    background-image: url("/assets/images/firstSectionBgDeco.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.second_section{
+  background-image: url("/assets/images/secondSectionBg.png");
+  background-size: cover;
+  position: relative;
+
+  .multi_circle_deco{
+    position: absolute;
+    top: -120px;
+    left: -100px;
+  }
+
+  .bg_service{
+    background-image: url("/assets/images/bgServices.png");
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+
+

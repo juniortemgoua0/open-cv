@@ -1,0 +1,57 @@
+<div class="first_section">
+  <app-nav-bar></app-nav-bar>
+  <div class="d-flex align-items-center justify-content-center">
+    <div class="row container">
+      <div class="col-12 col-sm-12 col-md-6 d-flex justify-content-start align-items-center" style="z-index: 2">
+        <div class="w-75" style="">
+          <h1 class="fs-2 fw-bolder" style="line-height: 1.2">Des models crees pour correspondre a <br>
+            differents metiers <br>
+          </h1>
+
+          <p class="mt-4">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dolore
+            ipsum itaque maxime nobis sunt vel, voluptatibus. Consectetur distinctio esse facilis fugiat
+            hic mollitia nihil odit, perferendis repellendus repudiandae veritatis.
+          </p>
+
+          <div class=" mt-4 d-flex justify-content-start align-items-center">
+            <button class="fs-6 fw-bold mx-1 px-4" routerLink="/models#second_section" mat-raised-button
+                    style="background-color: var(--primary-color) ; color: white ; height: 65px"
+                    (click)="scrollTo(750)"
+            >
+              Decouvrir nos modeles
+            </button>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-6 d-flex justify-content-end align-items-center">
+        <img src="assets/images/models_cv_group.png" class="" style="height: inherit" alt="">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="w-100  py-5 second_section ">
+  <div class="w-100 d-flex justify-content-center align-items-center">
+    <div class="d-flex flex-column">
+      <span class="fs-3 light mb-3">Explorer nos modeles</span>
+      <img src="assets/images/arrow_down.svg" class="animate_arrow" height="32" alt="">
+    </div>
+  </div>
+
+  <div class="w-100 d-flex justify-content-center align-items-center   mt-3 d-flex flex-wrap">
+    <app-cv-template src="cv_modele_1.jpg"></app-cv-template>
+    <app-cv-template src="cv_modele_2.jpg"></app-cv-template>
+    <app-cv-template src="cv_modele_3.jpg"></app-cv-template>
+    <app-cv-template src="cv_modele_4.png"></app-cv-template>
+    <app-cv-template src="cv_modele_1.jpg"></app-cv-template>
+    <app-cv-template src="cv_modele_2.jpg"></app-cv-template>
+    <app-cv-template src="cv_modele_3.jpg"></app-cv-template>
+    <app-cv-template src="cv_modele_4.png"></app-cv-template>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

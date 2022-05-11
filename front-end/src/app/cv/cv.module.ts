@@ -6,6 +6,9 @@ import { DashboardHomeComponent } from './dashboard/dashboard-home/dashboard-hom
 import { DashboardDocumentComponent } from './dashboard/dashboard-document/dashboard-document.component';
 import { DashboardJobOfferComponent } from './dashboard/dashboard-job-offer/dashboard-job-offer.component';
 import { DashboardSidebarComponent } from './shared/dashboard-sidebar/dashboard-sidebar.component';
+import { CvItemComponent } from './shared/cv-item/cv-item.component';
+import { CardWrapperComponent } from './shared/card-wrapper/card-wrapper.component';
+import { CvEditorComponent } from './cv-editor/cv-editor.component';
 
 @NgModule({
   declarations: [
@@ -13,11 +16,14 @@ import { DashboardSidebarComponent } from './shared/dashboard-sidebar/dashboard-
     DashboardHomeComponent,
     DashboardDocumentComponent,
     DashboardJobOfferComponent,
-    DashboardSidebarComponent
+    DashboardSidebarComponent,
+    CvItemComponent,
+    CardWrapperComponent,
+    CvEditorComponent
   ],
-  imports: [
-    SharedModule,
-    CvRoutingModule
-  ]
+    imports: [
+        SharedModule,
+        CvRoutingModule,
+    ]
 })
 export class CvModule { }

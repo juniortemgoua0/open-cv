@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../shared/auth.service";
 import {SigninDto} from "../shared/dto";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-users-signin',
@@ -11,10 +12,15 @@ import {SigninDto} from "../shared/dto";
 export class SignInComponent implements OnInit {
 
   signInForm!: FormGroup
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.signInForm = this.fb.group({
         email: ['', [Validators.email, Validators.required]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
+        password: ['', [Validators.required]],
       },
       {
         updateOn: 'change',
