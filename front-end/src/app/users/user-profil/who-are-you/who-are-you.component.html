@@ -1,91 +1,92 @@
+<form [formGroup]="whoAreYou">
 <div class="w-100">
   <app-step-count [countState]="2"></app-step-count>
   <div>
     <div class="row mt-3">
       <div class="col-12 col-sm-6 col-md-6">
-        <label for="name" class="form-label">Quel est votre nom ?<span class="text-danger"> *</span></label>
+        <label for="Nom" class="form-label">Quel est votre nom ?<span class="text-danger"> *</span></label>
         <mat-form-field class="w-100" appearance="outline">
           <mat-label>Nom</mat-label>
-          <input matInput placeholder="" id="name">
+          <input matInput placeholder="" id="name" formControlName="Nom">
         </mat-form-field>
       </div>
       <div class="col-12 col-sm-6 col-md-6 ">
-        <label for="lastname" class="form-label">Quel est votre prenom ?<span class="text-danger"> *</span></label>
+        <label for="Prenom" class="form-label">Quel est votre prenom ?<span class="text-danger"> *</span></label>
         <mat-form-field class="w-100" appearance="outline">
           <mat-label>Prenom</mat-label>
-          <input matInput placeholder="" id="lastname">
+          <input matInput placeholder="" id="lastname" formControlName="Prenom">
         </mat-form-field>
       </div>
     </div>
 
     <div class="row">
       <div class="col-12 col-sm-6 col-md-6">
-        <label for="birthday" class="form-label">Quel est votre date de naissance ? <span class="text-danger"> *</span></label>
+        <label for="DateNaiss" class="form-label">Quel est votre date de naissance ? <span class="text-danger"> *</span></label>
         <mat-form-field class="w-100" appearance="outline">
           <mat-label>Date de naissance</mat-label>
-          <input matInput placeholder="" id="birthday">
+          <input matInput placeholder="" id="birthday" formControlName="DateNaiss">
         </mat-form-field>
       </div>
       <div class="col-12 col-sm-6 col-md-6 ">
-        <label for="statut_matrimonial" class="form-label">Quel est votre statut matrimonial ?</label>
+        <label for="StatutMatrimonial" class="form-label">Quel est votre statut matrimonial ?</label>
         <mat-form-field class="w-100" appearance="outline">
           <mat-label>Statut matrimonial</mat-label>
-          <input matInput placeholder="" id="statut_matrimonial">
+          <input matInput placeholder="" id="statut_matrimonial" formControlName="StatutMatrimonial">
         </mat-form-field>
       </div>
     </div>
 
     <div class="row">
       <div class="col-12 col-sm-4 col-md-4">
-        <label for="pays" class="form-label">Quel est votre pays ? <span class="text-danger"> *</span></label>
+        <label for="Pays" class="form-label">Quel est votre pays ? <span class="text-danger"> *</span></label>
         <mat-form-field class="w-100" appearance="outline">
           <mat-label>Pays</mat-label>
-          <input matInput placeholder="" id="pays">
+          <input matInput placeholder="" id="pays" formControlName="Pays">
         </mat-form-field>
       </div>
       <div class="col-12 col-sm-4 col-md-4 ">
-        <label for="ville" class="form-label">Quel est votre ville ?</label>
+        <label for="Ville" class="form-label">Quel est votre ville ?</label>
         <mat-form-field class="w-100" appearance="outline">
           <mat-label>Ville</mat-label>
-          <input matInput placeholder="" id="ville">
+          <input matInput placeholder="" id="ville" formControlName="Ville">
         </mat-form-field>
       </div>
       <div class="col-12 col-sm-4 col-md-4 ">
-        <label for="adresse" class="form-label">Quel est votre adresse ?</label>
+        <label for="Adresse" class="form-label">Quel est votre adresse ?</label>
         <mat-form-field class="w-100" appearance="outline">
           <mat-label>Adresse</mat-label>
-          <input matInput placeholder="" id="adresse">
+          <input matInput placeholder="" id="adresse" formControlName="Adresse">
         </mat-form-field>
       </div>
     </div>
 
     <div class="row">
       <div class="col-12">
-        <label for="description" class="form-label">Decrivez vous en une phrase ? <span class="text-danger"> *</span></label>
+        <label for="Description" class="form-label">Decrivez vous en une phrase ? <span class="text-danger"> *</span></label>
         <mat-form-field class="w-100" appearance="outline">
           <mat-label>Description</mat-label>
-          <input matInput placeholder="" id="description">
+          <input matInput placeholder="" id="description" formControlName="Description">
         </mat-form-field>
       </div>
     </div>
 
     <div class="row">
       <div class="col-12">
-        <label for="birthday" class="form-label">Vous parlez quelles langues ? <span class="text-danger"> *</span></label>
+        <label for="Langue" class="form-label">Vous parlez quelles langues ? <span class="text-danger"> *</span></label>
         <div class="mt-2">
-          <button mat-flat-button class="me-2" style="background-color: var(--primary-color); color: white">Francais</button>
-          <button mat-flat-button class="mx-2" style="background-color: var(--primary-color); color: white">Anglais</button>
-          <button mat-stroked-button class="mx-2" style=" color: var(--primary-color)">Anglais</button>
+          <button mat-flat-button class="me-2" style="background-color: var(--primary-color); color: white" formControlName="Langue">Francais</button>
+          <button mat-flat-button class="mx-2" style="background-color: var(--primary-color); color: white" formControlName="Langue">Anglais</button>
+          <button mat-stroked-button class="mx-2" style=" color: var(--primary-color)">Ajouter</button>
         </div>
       </div>
     </div>
 
     <div class="row mt-3">
       <div class="col-12">
-        <label for="birthday" class="form-label">Quels sont vos atouts ? </label>
+        <label for="Atouts" class="form-label">Quels sont vos atouts ? </label>
         <div class="mt-2">
-          <button mat-flat-button class="me-2" style="background-color: var(--primary-color); color: white">Francais <mat-icon class="ms-2" style="color: white">indeterminate_check_box</mat-icon></button>
-          <button mat-flat-button class="mx-2" style="background-color: var(--primary-color); color: white">Anglais <mat-icon class="ms-2" style="color: white">indeterminate_check_box</mat-icon></button>
+          <button mat-flat-button class="me-2" style="background-color: var(--primary-color); color: white" formControlName="Atouts">Travailleur <mat-icon class="ms-2" style="color: white">indeterminate_check_box</mat-icon></button>
+          <button mat-flat-button class="mx-2" style="background-color: var(--primary-color); color: white" formControlName="Atouts">Dynamique <mat-icon class="ms-2" style="color: white">indeterminate_check_box</mat-icon></button>
           <button mat-stroked-button class="mx-2" style=" color: var(--primary-color)">Ajouter</button>
         </div>
       </div>
@@ -93,3 +94,4 @@
 
   </div>
 </div>
+</form>
