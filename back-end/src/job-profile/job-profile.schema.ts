@@ -12,7 +12,7 @@ export type JobProfileDocument = JobProfile & Document;
 
 @Schema()
 export class JobProfile {
-  @Prop({ required: true })
+  @Prop()
   category: string;
 
   @Prop({type: [{type:mongoose.Schema.Types.ObjectId, ref:'Competence'} ] ,default:[]})
@@ -24,8 +24,11 @@ export class JobProfile {
   @Prop({type: [{type:mongoose.Schema.Types.ObjectId, ref:'Formation'} ] ,default:[]})
   formation:Formation[];
 
-  @Prop({required:true})
+  @Prop()
   userProfile:UserProfile;
+
+  @Prop({type: {type:mongoose.Schema.Types.ObjectId, ref:'User'}, default:''})
+  userId : UserProfile
 
   @Prop({type: {type:mongoose.Schema.Types.ObjectId, ref:'JobProfile'}, default:''})
   cvModel: Cv;

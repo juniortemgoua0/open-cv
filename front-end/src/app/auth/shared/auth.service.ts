@@ -1,54 +1,62 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {SigninDto, SignupDto} from "./dto";
-import {Observable, Subscription} from "rxjs";
+import {BehaviorSubject, Observable, Subscription} from "rxjs";
 import {Router} from "@angular/router";
+import {UserService} from "../../users/shared/user.service";
+import {User} from "../../cv/shared/interface";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
 
-  public isLogging: boolean = false
+  _isLogging : BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false)
+  isLogging : Observable<boolean> = this._isLogging.asObservable()
+
+  _currentUser: BehaviorSubject<User> = new BehaviorSubject<User>({email: "", id: ""})
+  $currentUser: Observable<User> = this._currentUser.asObservable()
 
   constructor(
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
-    this.http.get<any>('http://localhost:3000/users/currentUser').subscribe(
+    this.verifyAuthentication()
+  }
+
+  verifyAuthentication() {
+    return this.http.get<any>('http://localhost:3000/auth/currentUser').subscribe(
       {
-        next: (v) => {
-          if (v) {
-            this.isLogging = true
+        next: (v: User) => {
+          if (v.id) {
             console.log(v)
+            this._currentUser.next(v)
+            this.userService.getCurrentUser(this.$currentUser)
+            this._isLogging.next(true)
           }
         },
         error: err => {
           alert('Connexion error')
+          console.log(err)
         }
       }
     )
-    // console.log('construct')
   }
 
   signIn(dto: SigninDto): Subscription {
     return this.http.post<any>('http://localhost:3000/auth/signin', dto).subscribe(
       {
-        next: (value: { msg: string }) => {
-          if (value.msg.includes('password')) {
-            console.log('Mot de passe incorrect')
-          } else if (value.msg.includes('email')) {
-            console.log('Email incorrect')
-          } else if (value.msg.includes('login')) {
-            console.log('Connexion reussie avec succes')
-            this.isLogging = true
-            window.setTimeout(() => {
-              this.router.navigateByUrl('/create-profile')
-            }, 2000)
+        next: (value) => {
+          if (value.access_token) {
+            console.log("User is connected")
+            localStorage.setItem('jwt', value.access_token)
+            this.router.navigateByUrl('/create-profile')
           }
         },
         error: (err) => {
-          alert('Erreur de connexion connixion server')
+          console.log(err)
+          alert('incorrect email ou password')
         }
       }
     );

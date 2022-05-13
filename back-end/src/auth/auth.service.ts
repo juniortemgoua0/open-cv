@@ -5,12 +5,14 @@ import { Model } from "mongoose";
 import { User, UserDocument } from "../users/user.schema";
 import { JwtService } from "@nestjs/jwt";
 import { Response } from "express";
+import { UsersService } from "../users/users.service";
 
 @Injectable()
 export class AuthService {
   constructor(
     @InjectModel("User") private UserModel: Model<UserDocument>,
-    private jwtService: JwtService
+    private jwtService: JwtService,
+    private userService: UsersService,
   ) {
   }
 
@@ -29,6 +31,22 @@ export class AuthService {
     const jwt = this.jwtService.signAsync({ id: user._id })
     response.cookie('jwt' , jwt , {httpOnly: true});
     return { msg : 'Success login'}
+  }
+
+  async validateUser(username: string , password: string) : Promise<any>{
+    const user = await this.userService.findOne(username);
+    if(user && user.password === password){
+      const { password , ...result} = user;
+      return result;
+    }
+    return null;
+  }
+
+  async login(user: any){
+    const payload = {username: user.email , sub : user._id}
+    return {
+      access_token : this.jwtService.sign(payload)
+    }
   }
 
   async signUp({ email, password }: User) {

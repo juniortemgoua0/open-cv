@@ -8,6 +8,8 @@ import {Component, Input, OnInit} from '@angular/core';
 export class CvItemComponent implements OnInit {
 
   @Input() isInDashboard: boolean = false
+  @Input() jobProfile! : any
+
   title: string = 'Developpeur web';
   lastDate: string = '1 jour';
   job: string = 'Develeppeur d\'application angular';

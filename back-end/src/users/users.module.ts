@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { UserSchema } from './user.schema';
+import { AuthModule } from "../auth/auth.module";
 
 @Global()
 @Module({
@@ -14,6 +15,6 @@ import { UserSchema } from './user.schema';
   ],
   controllers: [UsersController],
   providers: [UsersService],
-  exports: [MongooseModule],
+  exports: [MongooseModule , UsersService],
 })
 export class UsersModule {}

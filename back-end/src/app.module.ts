@@ -13,13 +13,9 @@ import { RecommandationModule } from "./recommandation/recommandation.module";
 @Global()
 @Module({
   imports: [
-    UsersModule,
     ConfigModule.forRoot({ isGlobal: true }),
     MongooseModule.forRoot(process.env.MONGO_DB_URI),
-    JwtModule.register({
-      secret: process.env.JWT_SECRET,
-      signOptions: { expiresIn: "1d" }
-    }),
+    UsersModule,
     UserProfileModule,
     AuthModule,
     CvModule,
@@ -28,7 +24,7 @@ import { RecommandationModule } from "./recommandation/recommandation.module";
     ],
   controllers: [],
   providers: [],
-  exports: [JwtModule]
+  exports: [ ConfigModule]
 })
 export class AppModule {
 }

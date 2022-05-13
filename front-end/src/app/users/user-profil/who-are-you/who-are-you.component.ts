@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup , FormControl} from '@angular/forms';
 import {ActivatedRoute} from "@angular/router";
-import {map} from "rxjs";
-import {UserProfileStepInterface} from "../../shared/user-profile-step.interface";
 import {UserProfileStepToken} from "../../shared/user-profile-step.token";
+import { UserProfilComponent } from '../user-profil.component';
 
 @Component({
   selector: 'app-who-are-you',
@@ -13,11 +12,14 @@ import {UserProfileStepToken} from "../../shared/user-profile-step.token";
     { provide: UserProfileStepToken , useExisting: WhoAreYouComponent}
   ]
 })
-export class WhoAreYouComponent implements OnInit , UserProfileStepInterface {
+export class WhoAreYouComponent implements OnInit  {
 
   stateRoute: String = 'who-are-you';
 
-  constructor( private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private userProfileComponent : UserProfilComponent
+    ) { }
 
   ngOnInit(): void {
   }
@@ -36,5 +38,8 @@ export class WhoAreYouComponent implements OnInit , UserProfileStepInterface {
   }
 );
 
+onNext(){
+  this.userProfileComponent.userProfileInfo.whoAreYou = this.whoAreYou.value;
+}
 
 }

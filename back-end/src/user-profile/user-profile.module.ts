@@ -10,7 +10,7 @@ import { UserProfileServivce } from "./user-profile.service";
   imports: [MongooseModule.forFeature([{ name: "UserProfile", schema: UserProfileSchema }])],
   controllers: [UserProfileController],
   providers: [UserProfileServivce],
-  exports:[MongooseModule]
+  exports:[MongooseModule,UserProfileServivce]
 })
 
 export class UserProfileModule {

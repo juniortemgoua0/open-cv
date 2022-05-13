@@ -10,7 +10,7 @@ export class Cv{
     image:string;
 
     @Prop({required : true })
-    title : string;
+    name : string;
 }
 
 export const CvSchema = SchemaFactory.createForClass(Cv);

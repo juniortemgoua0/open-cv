@@ -1,24 +1,26 @@
-import { UserProfile } from './../../../../../back-end/src/user-profile/user-profile.schema';
-import { HttpClient } from '@angular/common/http';
-import {Injectable} from "@angular/core";
+
+import { Injectable } from '@angular/core';
+import {UserService} from "./user.service";
+import {HttpClient} from "@angular/common/http";
+import {AuthService} from "../../auth/shared/auth.service";
+import {Observable} from "rxjs";
 
 @Injectable({
-  providedIn : "root"
+  providedIn: 'root'
 })
-export  class UserProfileServivce {
+export class UserProfileService {
 
- userProfiles !: UserProfile;
+  constructor(
+    private userService : UserService,
+    private authService : AuthService,
+    private http : HttpClient
+  ) { }
 
-  constructor(private httpClient :HttpClient) {
-    
+  getUserProfile(){
+    return this.http.get<any>('https://localhost:3000/user-profile/')
   }
 
-
-  insert(newUserProfile:UserProfile){
-
-
-
-
+  createUserProfile(userId: string, value: any): Observable<any>{
+     return this.http.post<any>('http://localhost:3000/user-profile/create/'+ userId , value)
   }
-
 }

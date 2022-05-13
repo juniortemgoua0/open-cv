@@ -7,7 +7,9 @@
       <div class="w-100 d-flex align-items-center justify-content-between">
         <button mat-stroked-button
                 style="border: 1px solid var(--primary-color); color: var(--primary-color)"
-                class="rounded-3">Modifier
+                class="rounded-3"
+                [routerLink]="'/cv-editor/edit/'+jobProfile._id"
+        >Modifier
         </button>
         <button mat-button class="fs-6 ">Telecharger</button>
       </div>
@@ -26,7 +28,9 @@
           <span class="text-danger fw-bold">Incomplet</span>
         </div>
         <div class="w-50 text-end d-flex flex-column align-items-end">
-          <button mat-stroked-button style="border: 1px solid var(--primary-color); color: var(--primary-color)">
+          <button mat-stroked-button
+                  [routerLink]="'/cv-editor/edit/'+jobProfile._id"
+                  style="border: 1px solid var(--primary-color); color: var(--primary-color)">
             Modifier
           </button>
           <button mat-button class="fs-6 pe-0 mt-1">Telecharger</button>

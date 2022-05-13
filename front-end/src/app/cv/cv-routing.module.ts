@@ -5,6 +5,7 @@ import {DashboardHomeComponent} from "./dashboard/dashboard-home/dashboard-home.
 import {DashboardDocumentComponent} from "./dashboard/dashboard-document/dashboard-document.component";
 import {DashboardJobOfferComponent} from "./dashboard/dashboard-job-offer/dashboard-job-offer.component";
 import {CvEditorComponent} from "./cv-editor/cv-editor.component";
+import {EditorGuard} from "./shared/guard/editor.guard";
 
 const routes : Routes = [
   {
@@ -16,7 +17,8 @@ const routes : Routes = [
       {path: 'job-offer' , component: DashboardJobOfferComponent}
     ]
   },
-  {path:'cv-editor' , component: CvEditorComponent}
+  {path:'cv-editor/create', canActivate: [EditorGuard], component: CvEditorComponent},
+  {path:'cv-editor/edit/:id' , component: CvEditorComponent},
 ]
 
 @NgModule({
