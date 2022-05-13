@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Param, Post, Put } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Put } from "@nestjs/common";
 import { JobProfileService } from "./job-profile.service";
 import { JobProfile } from "./job-profile.schema";
 import { Experience } from "./experience.schema";
@@ -10,6 +10,11 @@ import { Realisation } from "./realisation.schema";
 @Controller("job-profile")
 export class JobProfileController {
   constructor(private jobProfileService: JobProfileService) {
+  }
+
+  @Get(':id')
+  getAllJobProfile(@Param('id') id: string) {
+    return this.jobProfileService.getAllJobProfile(id)
   }
 
   @Post("create/:iduser")
@@ -83,7 +88,7 @@ export class JobProfileController {
   ) {
     return this.jobProfileService.updateRealisation(realisation, idNewRealisation);
   }
-  
+
 
 
 }

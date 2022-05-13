@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from "rxjs";
+import {JobProfileService} from "../../shared/job-profile.service";
+import {UserService} from "../../../users/shared/user.service";
 
 @Component({
   selector: 'app-dashboard-document',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardDocumentComponent implements OnInit {
 
-  constructor() { }
+  jobProfiles!: Observable<any[]>
+
+  constructor(
+    private jobProfileService : JobProfileService,
+    private userService: UserService
+  ) { }
 
   ngOnInit(): void {
+    this.jobProfiles = this.jobProfileService.getAllJobProfile(this.userService.currentUser.id)
   }
 
 }

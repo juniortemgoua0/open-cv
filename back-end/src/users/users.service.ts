@@ -9,8 +9,12 @@ export class UsersService {
   constructor(@InjectModel("User") private readonly UserModel: Model<User>) {
   }
 
-  findOne(id: string) {
+  findById(id: string) {
     return this.UserModel.findById(id);
+  }
+
+  async findOne(username: string){
+    return this.UserModel.findOne({email:username})
   }
 
   findAll() {

@@ -19,7 +19,7 @@ export class SignInComponent implements OnInit {
     private router: Router
   ) {
     this.signInForm = this.fb.group({
-        email: ['', [Validators.email, Validators.required]],
+        username: ['', [Validators.email, Validators.required]],
         password: ['', [Validators.required]],
       },
       {

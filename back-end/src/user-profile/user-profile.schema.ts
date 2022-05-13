@@ -1,70 +1,73 @@
 /* eslint-disable prettier/prettier */
-import { JobProfile } from 'src/job-profile/job-profile.schema';
-import { Prop, Schema,raw, SchemaFactory } from '@nestjs/mongoose';
-import * as mongoose from 'mongoose';
-import { IsNotEmpty, IsString } from 'class-validator';
-import { Document } from 'mongoose';
+import { JobProfile } from "src/job-profile/job-profile.schema";
+import { Prop, Schema, raw, SchemaFactory } from "@nestjs/mongoose";
+import * as mongoose from "mongoose";
+import { IsNotEmpty, IsString } from "class-validator";
+import { Document } from "mongoose";
+import { User } from "../users/user.schema";
 
- export type UserProfileDocument= UserProfile & Document;
+export type UserProfileDocument = UserProfile & Document;
 
 @Schema()
 export class UserProfile {
 
-@IsNotEmpty()
-@IsString()
-@Prop({required:true})
-lastname:string;
+  // @IsNotEmpty()
+  // @IsString()
+  @Prop({ default: "" })
+  lastname: string;
 
-@IsNotEmpty()
-@IsString()
-@Prop({required:true})
-firstname:string;
+  // @IsNotEmpty()
+  // @IsString()
+  @Prop({ default: "" })
+  firstname: string;
 
-@IsNotEmpty()
-@IsString()
-@Prop({required:true})
-birthday:string;
+  // @IsNotEmpty()
+  // @IsString()
+  @Prop({ default: "" })
+  birthday: string;
 
 
-@IsString()
-@Prop()
-marital_status:string;
+  // @IsString()
+  @Prop({ default: "" })
+  marital_status: string;
 
-@IsNotEmpty()
-@IsString()
-@Prop({required:true,default:''})
-country:string;
+  // @IsNotEmpty()
+  // @IsString()
+  @Prop({ default: "" })
+  country: string;
 
-@IsNotEmpty()
-@IsString()
-@Prop({required:true,default:''})
-location_city:string;
+  // @IsNotEmpty()
+  // @IsString()
+  @Prop({ default: "" })
+  location_city: string;
 
-/*@IsNotEmpty()*/
-@IsString()
-@Prop({required:true,default:''})
-adress:string;
+  /*@IsNotEmpty()*/
+  // @IsString()
+  @Prop({ default: "" })
+  address: string;
 
-@Prop({default:''})
-description:string;
+  @Prop({ default: "" })
+  description: string;
 
-@Prop(raw(
+  @Prop(raw(
     {
-    title:{type:String},
-    level:{type:Number}
+      title: { type: String },
+      level: { type: Number }
     }
-))
-language:Record<string,any>[];
+  ))
+  language: Record<string, any>[];
 
-@Prop({required:true, default:[]})
-asset:[string];
+  @Prop({ default: [] })
+  asset: [string];
 
-@Prop({required:true,default:[]})
-center_of_interest:[string];
+  @Prop({ default: [] })
+  center_of_interest: [string];
 
-@Prop({type: [{type: mongoose.Schema.Types.ObjectId, ref: 'JobProfile'}],default:[] })
-jobProfile:JobProfile[];
+  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: "JobProfile" }], default: [] })
+  jobProfile: JobProfile[];
 
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: "User" })
+  userId: User;
 }
 
 export const UserProfileSchema = SchemaFactory.createForClass(UserProfile);

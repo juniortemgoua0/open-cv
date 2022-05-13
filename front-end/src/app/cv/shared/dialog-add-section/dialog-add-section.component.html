@@ -1,0 +1,147 @@
+<div class="w-100">
+  <span class="fs-5 fw-bold" mat-dialog-title> Ajouter une {{data.section}}</span>
+
+  <ng-container [ngSwitch]="data.section">
+    <div *ngSwitchCase="'experience'">
+      <div class="row">
+        <div class="col-md-6 col-sm-12 col-6">
+          <label for="poste">Poste</label>
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Poste</mat-label>
+            <input matInput placeholder="" id="poste">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 col-sm-12 col-6">
+          <label for="compagnie">Compagnie</label>
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Compagnie</mat-label>
+            <input matInput placeholder="" id="compagnie">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-6 col-sm-12 col-6">
+          <label for="date_debut">Date de debut</label>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Date de debut</mat-label>
+            <input matInput [matDatepicker]="date_debut">
+            <mat-datepicker-toggle matSuffix [for]="date_debut"></mat-datepicker-toggle>
+            <mat-datepicker #date_debut></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 col-sm-12 col-6">
+          <label for="date_fin">Date de fin</label>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Date de fin</mat-label>
+            <input matInput [matDatepicker]="date_fin">
+            <mat-datepicker-toggle matSuffix [for]="date_fin"></mat-datepicker-toggle>
+            <mat-datepicker #date_fin></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <label for="description">Description</label>
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="" id="description"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'formation'">
+      <div class="row">
+        <div class="col-md-6 col-sm-12 col-6">
+          <label for="domaine">Domaine</label>
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Domaine</mat-label>
+            <input matInput placeholder="" id="domaine">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 col-sm-12 col-6">
+          <label for="etablissement">Etabissement</label>
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Etabissement</mat-label>
+            <input matInput placeholder="" id="etablissement">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-6 col-sm-12 col-6">
+          <label for="date_debut">Date de debut</label>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Date de debut</mat-label>
+            <input matInput [matDatepicker]="date_debut">
+            <mat-datepicker-toggle matSuffix [for]="date_debut"></mat-datepicker-toggle>
+            <mat-datepicker #date_debut></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6 col-sm-12 col-6">
+          <label for="date_fin">Date de fin</label>
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Date de fin</mat-label>
+            <input matInput [matDatepicker]="date_fin">
+            <mat-datepicker-toggle matSuffix [for]="date_fin"></mat-datepicker-toggle>
+            <mat-datepicker #date_fin></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <label for="description">Description</label>
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput placeholder="" id="description"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'competence'">
+      <div class="row">
+        <div class="col-md-6 col-sm-12 col-6">
+          <label for="intitule">Intitule</label>
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Intitule</mat-label>
+            <input matInput placeholder="" id="intitule">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 col-sm-12 col-6">
+          <label for="niveau">Niveau</label>
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Niveau</mat-label>
+            <input matInput placeholder="" id="niveau">
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div *ngSwitchCase="'accroche'">
+      <div class="row">
+        <div class="col-12">
+          <label for="date_debut">Decrivez en quelque mots ce qui pourra attirer l'attention d'un recruteur sur votre
+            profil</label>
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Accroche</mat-label>
+            <textarea matInput placeholder="" id="acrroche"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <div mat-dialog-actions class="w-100 d-flex justify-content-end">
+    <button mat-raised-button style="background-color: var(--primary-color); color: white" (click)="onSaveData()">
+      Enregistrer
+    </button>
+    <button mat-stroked-button style="border: 1px solid var(--primary-color); color: var(--primary-color)"
+            mat-dialog-close="" class="">
+      Annuler
+    </button>
+  </div>
+</div>

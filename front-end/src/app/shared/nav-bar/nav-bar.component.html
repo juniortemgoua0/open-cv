@@ -4,10 +4,10 @@
   <div>
     <button routerLink="/home" routerLinkActive="active" class="fs-6 " mat-button>Accueil</button>
     <button routerLink="/models" class="fs-6 " routerLinkActive="active" mat-button>Nos modeles</button>
-    <button class="fs-6 " routerLink="/realisation" routerLinkActive="active" mat-button>Nos realisation</button>
+    <button class="fs-6 " routerLink="/user-profile/welcome" routerLinkActive="active" mat-button>Profile utilisateur</button>
     <button class="fs-6 " routerLink="/about" routerLinkActive="active" mat-button>A propos</button>
   </div>
-  <ng-container *ngIf="!isLogging else dashboard_button">
+  <ng-container *ngIf="!(isLogging | async) else dashboard_button">
     <div>
       <button class="fs-6" routerLink="/sign-in" mat-button>Se connecter</button>
       <button class="fw-bold fs-6" routerLink="/sign-up" mat-raised-button color="primary"
@@ -20,8 +20,8 @@
 
 <ng-template #dashboard_button>
   <div>
-    <button class="fw-bold fs-6" routerLink="/dashboard" mat-raised-button color="primary"
-            style="background-color: white ; color: var(--primary-color); height: 45px">Dashboard
+    <button class="fw-bold fs-6" routerLink="/dashboard/home" mat-raised-button color="primary"
+            style="background-color: white ; color: var(--primary-color); height: 45px">Tableau de bord
     </button>
   </div>
 </ng-template>

@@ -14,19 +14,35 @@ export class UserProfileServivce {
   ) {
   }
 
-  async createProfile(userProfile: UserProfile, id: string) {
+  async createProfile(userProfile: UserProfile, userId: string) {
     const createdProfile = new this.UserProfileModel(userProfile);
-    const idUserProfile = (await createdProfile.save())._id;
+    const newUserProfile = await createdProfile.save()
 
-    return this.UserModel.findByIdAndUpdate(id,
+    await this.UserModel.findByIdAndUpdate(userId,
       {
         $set:
           {
-            userProfile: idUserProfile,
+            userProfile: newUserProfile._id,
             updatedAt: Date.now()
           }
       },
       { new: true, upsert: true }
     );
+
+    await this.UserProfileModel.findByIdAndUpdate(newUserProfile._id,
+      {
+        $set:
+          {
+            userId: (await this.UserModel.findById(userId))._id,
+          }
+      },
+      { new: true, upsert: true }
+    );
+
+    return newUserProfile
+  }
+
+  async getUserProfile(userId: string) {
+    return this.UserProfileModel.findOne().where({userId:userId})
   }
 }

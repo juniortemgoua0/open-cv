@@ -1,0 +1,211 @@
+<div class="w-100 h-100  d-flex" #template_cv>
+  <div class="col-4 h-100  d-flex flex-column py-3 text-white" style="background-color: #38a388">
+    <div class="fs-3 d-flex flex-column px-3 fw-bold">
+      <span class="mb-3">{{userProfile.firstname}}</span> <span>{{userProfile.lastname}}</span>
+    </div>
+    <div class="mt-3 px-3 d-flex flex-column" style="font-size: 16px">
+      <span>Responsable</span>
+      <span>commercial senior</span>
+    </div>
+    <div class="mx-3 mt-3 bg-white" style="height: 300px">
+    </div>
+    <div class="bg-opacity-10 px-3 py-2 mt-3 fw-bold d-flex flex-column"
+         style="background-color: #067c63; font-size: 18px">
+      <span>Information</span>
+      <span>Personnelles</span>
+    </div>
+    <div class="d-flex flex-column px-3 py-3">
+      <div class="flex-column d-flex">
+        <span class="fw-bold">Adresse</span>
+        <span class="fw-light">75 000 paris</span>
+      </div>
+
+      <div class="flex-column mt-3 d-flex">
+        <span class="fw-bold">Telephone</span>
+        <span class="fw-light">+237 45566767</span>
+      </div>
+
+      <div class="flex-column mt-3 d-flex">
+        <span class="fw-bold">E-mail</span>
+        <span class="fw-light">example.example@gmail.com</span>
+      </div>
+
+      <div class="flex-column mt-3 d-flex">
+        <span class="fw-bold">LinkedIn</span>
+        <span class="fw-light">linkedin.com/in/juniortemgoua</span>
+      </div>
+    </div>
+
+    <div class="bg-opacity-10 px-3 py-2 fw-bold d-flex flex-column"
+         style="background-color: #067c63; font-size: 18px">
+      <span>Langues</span>
+    </div>
+
+    <div class="d-flex flex-column px-3 py-3">
+      <div class="flex-column d-flex">
+        <span class="fw-light">Anglais</span>
+        <div class="w-100 bg-opacity-10" style="background-color: #067c63; height: 10px">
+          <div class=" w-100 bg-white" style="height: 10px"></div>
+        </div>
+      </div>
+
+      <div class="flex-column mt-3 d-flex">
+        <span class="fw-light">Allemand</span>
+        <div class="w-100 bg-opacity-10" style="background-color: #067c63; height: 10px">
+          <div class=" w-75 bg-white" style="height: 10px"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-opacity-10 px-3 py-2 fw-bold mt-1 d-flex flex-column"
+         style="background-color: #067c63; font-size: 18px">
+      <span>Informatique</span>
+    </div>
+
+    <div class="d-flex flex-column px-3 py-3">
+      <div class="flex-column d-flex">
+        <span class="fw-light">Microsoft CRM et Salesforce</span>
+        <div class="w-100 bg-opacity-10" style="background-color: #067c63; height: 10px">
+          <div class=" w-100 bg-white" style="height: 10px"></div>
+        </div>
+      </div>
+
+      <div class="flex-column mt-3 d-flex">
+        <span class="fw-light">Base de donnees SQL</span>
+        <div class="w-100 bg-opacity-10" style="background-color: #067c63; height: 10px">
+          <div class=" w-75 bg-white" style="height: 10px"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-opacity-10 px-3 py-2 fw-bold mt-1 d-flex flex-column"
+         style="background-color: #067c63; font-size: 18px">
+      <span>Certifications</span>
+    </div>
+
+    <div class="d-flex flex-column px-3 pt-3">
+      <div class="flex-column d-flex">
+        <span class="fw-light">03/2019</span>
+        <span class="fw-light">Certification <span class="fw-bold">AKOR</span> en <span
+          class="fw-bold">Performance</span></span>
+        <span class="fw-bold">collective</span>
+      </div>
+
+      <div class="flex-column d-flex mt-3">
+        <span class="fw-light">03/2019</span>
+        <span class="fw-light">Certification <span class="fw-bold">AKOR</span> en <span class="fw-bold">Relation</span></span>
+        <span class="fw-bold">Client d'exception</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-8 h-100 p-3">
+    <div class="position-relative w-100" appDisplayEditorOption>
+      <app-editor-button-option section="accroche"></app-editor-button-option>
+      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi corporis debitis dolorem dolorum ducimus
+        eveniet, excepturi, expedita molestias natus, neque nesciunt nisi provident qui rem unde vero! Architecto, cum.
+      </div>
+      <div>Ad facere maiores nemo nesciunt nisi nobis quaerat quas saepe? Accusamus accusantium aperiam dignissimos
+        dolorum eum laborum, nulla porro quod velit! Accusamus et laudantium quidem sit veritatis. Facilis, molestiae,
+        quia.
+      </div>
+    </div>
+    <div class="w-100" appDisplayEditorOption>
+      <div class="w-100 position-relative">
+        <app-editor-button-option section="experience"></app-editor-button-option>
+        <div class="mt-2 w-100 border-bottom border-top py-2 fs-6 fw-bold"
+             style="color: #38a388">
+
+          Experience Professionnelle
+        </div>
+      </div>
+
+
+      <div class="w-100 d-flex mt-2">
+        <div class="col-2 d-flex flex-column"><span>01/2012-</span> <span>05/2020</span></div>
+        <div class="col-10 d-flex flex-column">
+          <span class="fw-bold fs-6">Responsable commercial B2B</span>
+          <span style="font-size: 14px; font-style: italic; font-weight: 500">cellnex Telecom, <span class="fw-light">Paris</span></span>
+          <ul>
+            <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
+            <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
+            <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
+          </ul>
+
+          <span style="font-size: 14px; font-weight: 500">Resultats majeurs : </span>
+          <ul>
+            <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
+            <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
+            <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="w-100 d-flex mt-2">
+        <div class="col-2 d-flex flex-column"><span>01/2012-</span> <span>05/2020</span></div>
+        <div class="col-10 d-flex flex-column">
+          <span class="fw-bold fs-6">Responsable commercial B2B</span>
+          <span style="font-size: 14px; font-style: italic; font-weight: 500">cellnex Telecom, <span class="fw-light">Paris</span></span>
+          <ul>
+            <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
+            <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
+          </ul>
+
+          <span style="font-size: 14px; font-weight: 500">Resultats majeurs : </span>
+          <ul>
+            <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-100 " appDisplayEditorOption>
+      <div class="w-100 position-relative">
+        <app-editor-button-option section="formation"></app-editor-button-option>
+        <div class="mt-2 w-100 border-bottom border-top py-2 fs-6 fw-bold"
+             style="color: #38a388">
+          Formation
+        </div>
+      </div>
+      <div class="w-100 d-flex mt-2">
+        <div class="col-2 d-flex flex-column"><span>01/2012-</span> <span>05/2020</span></div>
+        <div class="col-10 d-flex flex-column">
+          <span class="fw-bold fs-6">Licence professionnelle cormmerce</span>
+          <span style="font-size: 14px; font-style: italic; font-weight: 500">cellnex Telecom, <br> <span
+            class="fw-light">Paris</span></span>
+        </div>
+      </div>
+
+      <div class="w-100 d-flex mt-2">
+        <div class="col-2 d-flex flex-column"><span>01/2012-</span> <span>05/2020</span></div>
+        <div class="col-10 d-flex flex-column">
+          <span class="fw-bold fs-6">BTS NRC (Negociation Relation Client)</span>
+          <span style="font-size: 14px; font-style: italic; font-weight: 500">cellnex Telecom, <br> <span
+            class="fw-light">Paris</span></span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="w-100" appDisplayEditorOption>
+      <div class="w-100 position-relative">
+        <app-editor-button-option section="competence"></app-editor-button-option>
+        <div class="mt-2 w-100 border-bottom border-top py-2 fs-6 fw-bold"
+             style="color: #38a388">
+          Competences
+        </div>
+      </div>
+
+      <div class="w-100 d-flex mt-2">
+        <div class="col-2 d-flex flex-column"></div>
+        <div class="col-10 d-flex flex-column">
+          <span class="mt-2">Developper le portefeuille commercial (B2B) et fideliser</span>
+          <span class="mt-2">Developper le portefeuille commercial (B2B) et fideliser</span>
+          <span class="mt-2">Developper le portefeuille commercial (B2B) et fideliser</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+

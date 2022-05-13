@@ -10,11 +10,11 @@ export class Experience{
 
     @Prop({required:true})
     organisation:string;
-    
+
     @Prop({required:true})
     function:string;
 
-    @Prop({require:true})
+    @Prop( {default: ''})
     cause:string;
 
     @Prop({require:true})
@@ -31,7 +31,7 @@ export class Experience{
 
     @Prop({type: [{type:mongoose.Schema.Types.ObjectId, ref:'Realisation'} ] ,default:[]})
      realisation:Realisation[];
-    
+
 }
 
 
