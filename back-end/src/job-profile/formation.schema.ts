@@ -13,7 +13,7 @@ export class Formation{
     @Prop({required:true})
     diploma:string;
 
-    @Prop({required:true})
+    @Prop({default: ''})
     fieldOfStudy:string;
 
     @Prop({required:true})
@@ -22,11 +22,11 @@ export class Formation{
     @Prop({required:true})
     endDate:Date;
 
-    @Prop({required:true})
+    @Prop({default: ''})
     obtainedResult:string;
 
     @Prop({required:true})
-    decsription:string;
+    description:string;
 }
 
 export const FormationSchema = SchemaFactory.createForClass(Formation);

@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {DialogPosition, MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {JobProfileService} from "../job-profile.service";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {UserService} from "../../../users/shared/user.service";
@@ -18,7 +18,7 @@ export class DialogAddSectionComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private jobProfileService: JobProfileService,
     private userService: UserService,
-    private route : ActivatedRoute,
+    private route: ActivatedRoute,
     private fb: FormBuilder
   ) {
   }
@@ -30,35 +30,46 @@ export class DialogAddSectionComponent implements OnInit {
   accroche!: FormControl;
 
   ngOnInit(): void {
-    this.route.url.subscribe(
-      v => {
-        console.log(v)
-        this.currentJobProfileId = v[v.length - 1].path
-      }
-    )
+
     this.formExperience = this.fb.group({
-      organisation:[''],
-      function:[''],
-      startDate:[''],
-      endDate:[''],
-      description:[''],
+      organisation: [''],
+      function: [''],
+      startDate: [''],
+      endDate: [''],
+      description: [''],
     });
 
     this.formFormation = this.fb.group({
-      organisation:[''],
-      function:[''],
-      startDate:[''],
-      endDate:[''],
-      description:[''],
+      school: [''],
+      diploma: [''],
+      startDate: [''],
+      endDate: [''],
+      description: [''],
+    });
+
+    this.formCompetence = this.fb.group({
+      name: [''],
+      level: [''],
     });
   }
 
   onSaveData() {
-
     switch (this.data.section) {
-      case 'experience': {
-        // this.jobProfileService.addExperience(jobProfileId)
-      }
+      case 'experience':
+        this.jobProfileService.addExperience(this.data.currentJobProfileId, this.formExperience.value);
+        this.dialogRef.close()
+        break
+      case 'formation' :
+        this.jobProfileService.addFormation(this.data.currentJobProfileId , this.formFormation.value);
+        this.dialogRef.close()
+        break;
+      case 'competence':
+        this.jobProfileService.addCompetence(this.data.currentJobProfileId , this.formCompetence.value);
+        this.dialogRef.close();
+        break;
+      case 'accroche' :
+        this.jobProfileService.addAccroche(this.data.currentJobProfileId , this.accroche.value)
+        break;
     }
 
   }

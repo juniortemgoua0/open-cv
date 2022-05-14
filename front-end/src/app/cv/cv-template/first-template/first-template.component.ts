@@ -6,7 +6,7 @@ import {CvTemplate} from "../../shared/interface/cv-template";
 import {JobProfileService} from "../../shared/job-profile.service";
 import {UserService} from "../../../users/shared/user.service";
 import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
-import {filter, map} from "rxjs";
+import {filter, map, Observable} from "rxjs";
 
 @Component({
   selector: 'app-first-template',
@@ -14,8 +14,9 @@ import {filter, map} from "rxjs";
   styleUrls: ['./first-template.component.scss']
 })
 export class FirstTemplateComponent implements OnInit, CvTemplate {
-  userProfile = {firstname: "Junior", lastname: "Temgoua"};
-  jobProfile!: any
+  userProfileId!: any;
+  jobProfileId!: any;
+  idInfo!: { userProfileId: string; jobProfileId: string };
 
   constructor(
     private userProfileService: UserProfileService,
@@ -29,9 +30,24 @@ export class FirstTemplateComponent implements OnInit, CvTemplate {
     this.route.url.subscribe(
       url => {
         const jobProfileId = url[2].path
-        this.getJobProfile(jobProfileId)
+        // this.getJobProfile(jobProfileId)
       }
     )
+    console.log("userProfileId => "+ this.idInfo.userProfileId , "jobProfileId => " + this.idInfo.jobProfileId)
+    this.jobProfileService.getOneJobProfile(this.idInfo.jobProfileId).subscribe({
+      next: value => {
+        console.log("job profile =>", value)
+      },
+      error: err => console.log(err)
+      }
+    )
+
+    this.userProfileService.getUserProfile(this.idInfo.userProfileId).subscribe({
+      next: value => {
+        console.log('user profil => ' + value)
+      },
+      error: err => console.log(err)
+    })
   }
 
   getJobProfile(jobProfileId: string): void {
@@ -41,7 +57,8 @@ export class FirstTemplateComponent implements OnInit, CvTemplate {
       })
     ).subscribe(
       v => {
-        this.jobProfile = v
+        console.log('job Profile',v)
+        this.jobProfileId = v
       }
     )
   }

@@ -25,7 +25,6 @@ export class EditorButtonOptionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.cvEditor)
   }
 
   onOptionClick(type: 'add' | 'edit'){

@@ -26,13 +26,11 @@ export class Experience{
     @Prop({required:true})
     endDate:Date;
 
-    @Prop({required:true})
+    @Prop({default: ''})
     description:string;
 
     @Prop({type: [{type:mongoose.Schema.Types.ObjectId, ref:'Realisation'} ] ,default:[]})
      realisation:Realisation[];
-
 }
-
 
 export const ExperienceSchema = SchemaFactory.createForClass(Experience);

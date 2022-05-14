@@ -63,9 +63,10 @@ export class AuthService {
   }
 
   signUp(dto: SignupDto) {
-    this.http.post('http://localhost:3000/auth/signup', dto).subscribe(
+    this.http.post<any>('http://localhost:3000/auth/signup', dto).subscribe(
       value => {
         console.log(value);
+        this.router.navigateByUrl('/sign-in')
       }
     );
   }

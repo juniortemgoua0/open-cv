@@ -45,8 +45,12 @@ export class JobProfileService {
   ) {
   }
 
+  async getOneJobProfile(jobProfileId: string) {
+    return  this.JobProfileModel.findById(jobProfileId).populate(['competence' , 'experience' , 'formation']).exec();
+  }
+
   async getAllJobProfile(id: string) {
-    return this.JobProfileModel.find().where({ userId: id } );
+    return this.JobProfileModel.find().where({ userId: id }).populate(['experience' , 'competence', 'formation']).exec();
   }
 
   async createJobProfile(jobProfile: JobProfile, idUser: string) {
@@ -54,13 +58,13 @@ export class JobProfileService {
     const newJobProfile = await createdJobProfile.save();
     await this.UserProfileModel.findByIdAndUpdate(idUser, {
       $push: {
-        jobProfile: newJobProfile._id
+        jobProfile: newJobProfile
       }
     }, {
       new: true,
       upsert: true
     });
-    await this.JobProfileModel.findByIdAndUpdate( newJobProfile._id, {
+    await this.JobProfileModel.findByIdAndUpdate(newJobProfile._id, {
       $set: {
         userId: idUser
       }
@@ -68,17 +72,16 @@ export class JobProfileService {
       new: true,
       upsert: true
     });
-
     return newJobProfile;
   }
 
   async addExperience(experience: Experience, idJobProfile: string) {
     const createdExperience = new this.ExperienceModel(experience);
-    const idNewExperience = (await (createdExperience.save()))._id;
+    const newExperience = await createdExperience.save();
     return this.JobProfileModel.findByIdAndUpdate(
       idJobProfile,
       {
-        $push: { experience: idNewExperience }
+        $push: { experience: { ...newExperience } }
       },
       { new: true, upsert: true }
     );
@@ -86,12 +89,12 @@ export class JobProfileService {
 
   async addFormation(formation: Formation, idJobProfile: string) {
     const createdFormation = new this.FormationModel(formation);
-    const idNewFormation = (await createdFormation.save())._id;
+    const newFormation = await createdFormation.save();
     return this.JobProfileModel.findByIdAndUpdate(
       idJobProfile,
       {
         $push: {
-          formation: idNewFormation
+          formation: { ...newFormation }
         }
       },
       { new: true, upsert: true }
@@ -100,12 +103,12 @@ export class JobProfileService {
 
   async addCompetence(competence: Competence, idJobProfile: string) {
     const createdCompetence = new this.CompetenceModel(competence);
-    const idNewCompetence = (await createdCompetence.save())._id;
+    const newCompetence = await createdCompetence.save();
     return this.JobProfileModel.findByIdAndUpdate(
       idJobProfile,
       {
         $push: {
-          competence: idNewCompetence
+          competence: { ...newCompetence }
         }
       },
       { new: true, upsert: true }

@@ -15,8 +15,8 @@ export class UserProfileService {
     private http : HttpClient
   ) { }
 
-  getUserProfile(){
-    return this.http.get<any>('https://localhost:3000/user-profile/')
+  getUserProfile(userId: string){
+    return this.http.get<any>('http://localhost:3000/user-profile/'+ userId)
   }
 
   createUserProfile(userId: string): Observable<any>{

@@ -48,10 +48,10 @@ export class AuthService {
     }
   }
 
-  async signUp({ email, password }: User) {
-    const user = await this.UserModel.findOne({ email: email });
+  async signUp(dto: User) {
+    const user = await this.UserModel.findOne({ email: dto.email });
     if (!user) {
-      const createUser = new this.UserModel();
+      const createUser = new this.UserModel(dto);
       return createUser.save();
     }
     return {

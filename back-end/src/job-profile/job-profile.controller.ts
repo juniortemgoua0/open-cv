@@ -12,9 +12,14 @@ export class JobProfileController {
   constructor(private jobProfileService: JobProfileService) {
   }
 
-  @Get(':id')
-  getAllJobProfile(@Param('id') id: string) {
+  @Get(':idUser')
+  getAllJobProfile(@Param('idUser') id: string) {
     return this.jobProfileService.getAllJobProfile(id)
+  }
+
+  @Get('one/:jobProfileId')
+  getOneJobProfile(@Param('jobProfileId') jobProfileId : string){
+    return this.jobProfileService.getOneJobProfile(jobProfileId)
   }
 
   @Post("create/:iduser")
