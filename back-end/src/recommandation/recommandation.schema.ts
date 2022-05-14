@@ -1,23 +1,28 @@
 /* eslint-disable prettier/prettier */
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document } from "mongoose";
+import { IsEmail, IsNotEmpty, IsString } from "class-validator";
 
 
-
-export type recommandationDocument = Recommandation & Document;
+export type RecommandationDocument = Recommandation & Document;
 
 @Schema()
 export class Recommandation{
-
-    @IsString()
+    @IsEmail()
     @IsNotEmpty()
     @Prop({required:true})
     email:string;
 
     @IsString()
-    @IsNotEmpty()
+    @Prop({required:true})
+    objet:string;
+
+    @IsString()
     @Prop({required:true})
     description:string;
+
 }
 
 export const RecommandationSchema = SchemaFactory.createForClass(Recommandation);
+
+

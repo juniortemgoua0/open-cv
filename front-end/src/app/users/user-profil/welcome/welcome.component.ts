@@ -1,20 +1,21 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {generate} from "rxjs";
 import {MatButton} from "@angular/material/button";
-import {UserProfileStepInterface} from "../../shared/user-profile-step.interface";
 import {UserProfileStepToken} from "../../shared/user-profile-step.token";
+import { USER_TOKEN } from '../../shared/user-profile.token';
+import { UserProfilComponent } from '../user-profil.component';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.scss'],
   providers: [
-    {provide: UserProfileStepToken , useExisting: WelcomeComponent}
+    {provide: UserProfileStepToken , useExisting: WelcomeComponent},
+    {provide: USER_TOKEN , useExisting: UserProfilComponent}
   ]
 })
-export class WelcomeComponent implements OnInit , UserProfileStepInterface {
+export class WelcomeComponent implements OnInit {
 
   genre!: FormControl
   @ViewChild('man', {static: true}) man!: MatButton
@@ -22,7 +23,11 @@ export class WelcomeComponent implements OnInit , UserProfileStepInterface {
 
   stateRoute: string = 'welcome'
 
-  constructor(private route: ActivatedRoute, private fb: FormBuilder) {
+  constructor(
+    private route: ActivatedRoute,
+     private fb: FormBuilder,
+    private userProfileComponent : UserProfilComponent
+     ) {
   }
 
   ngOnInit(): void {
@@ -41,6 +46,6 @@ export class WelcomeComponent implements OnInit , UserProfileStepInterface {
   }
 
   onNext() {
-    console.log(this.genre.value)
+    this.userProfileComponent.userProfileInfo.sexe = this.genre.value
   }
 }

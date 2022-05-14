@@ -8,7 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { CvModule } from './cv/cv.module';
 import { ConfigModule } from '@nestjs/config';
 import { JobProfileModule } from './job-profile/job-profile.module';
-import { RecommandationModule } from './recommandation/recommandation.module';
+import { RecommandationModule } from "./recommandation/recommandation.module";
 
 @Global()
 @Module({
@@ -20,8 +20,8 @@ import { RecommandationModule } from './recommandation/recommandation.module';
     AuthModule,
     CvModule,
     JobProfileModule,
-    RecommandationModule,
-  ],
+    RecommandationModule
+    ],
   controllers: [],
   providers: [],
   exports: [ ConfigModule]

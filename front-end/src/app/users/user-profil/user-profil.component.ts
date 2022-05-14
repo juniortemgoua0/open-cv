@@ -4,11 +4,16 @@ import {UserProfileStepToken} from "../shared/user-profile-step.token";
 import {UserProfileStepInterface} from "../shared/user-profile-step.interface";
 import {UserProfileService} from "../shared/user-profile.service";
 import {UserService} from "../shared/user.service";
+import { USER_TOKEN } from '../shared/user-profile.token';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 
 @Component({
   selector: 'app-users-profil',
   templateUrl: './user-profil.component.html',
-  styleUrls: ['./user-profil.component.scss']
+  styleUrls: ['./user-profil.component.scss'],
+  providers: [
+    {provide: USER_TOKEN , useExisting: UserProfilComponent}
+  ]
 })
 export class UserProfilComponent implements OnInit {
 
@@ -25,10 +30,17 @@ export class UserProfilComponent implements OnInit {
   ) {
   }
 
+  userProfileInfo!: {sexe:string,whoAreYou: any,whatYouDo:any}
+
   ngOnInit(): void {
     // this.userProfileService.createUserProfile(this.userService.currentUser.id).subscribe(
     //   v => console.log(v)
     // )
+    this.userProfileInfo = {
+      sexe : '',
+      whoAreYou : {},
+      whatYouDo : {}
+    }
   }
 
   componentAdded(event: any) {

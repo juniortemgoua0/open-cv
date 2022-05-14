@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import {UserService} from "./user.service";
 import {HttpClient} from "@angular/common/http";
@@ -19,7 +20,7 @@ export class UserProfileService {
     return this.http.get<any>('http://localhost:3000/user-profile/'+ userId)
   }
 
-  createUserProfile(userId: string): Observable<any>{
-     return this.http.post<any>('http://localhost:3000/user-profile/create/'+ userId , {})
+  createUserProfile(userId: string, value: any): Observable<any>{
+     return this.http.post<any>('http://localhost:3000/user-profile/create/'+ userId , value)
   }
 }
