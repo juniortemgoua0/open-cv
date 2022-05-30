@@ -5,7 +5,8 @@
       <div class="d-flex align-items-center ms-2">  <mat-icon>keyboard_arrow_right</mat-icon> <span class="fs-6 fw-bold">Developpeur web</span></div>
     </div>
     <div>
-      <button mat-flat-button style="background-color: var(--primary-color); color: white" class="fw-bold m-1">Techarger</button>
+      <button style="background-color: var(--primary-color); color: white; border: none; "
+              class="fw-bold m-1 rounded-2 py-2" id="btn_download" >Telecharger</button>
       <button mat-stroked-button
               style="border:1px solid var(--primary-color); color: var(--primary-color)"
               class="fw-bold m-1">Demander une recommandation
@@ -40,7 +41,7 @@
     <div class=" d-flex " style="flex: 1">
       <div style="flex: 1" class="d-flex justify-content-center vh-100 py-5 overflow-scroll">
         <div class="bg-white shadow-sm mb-5" style="width: 21cm; height: 29.7cm">
-          <template #cv_editor>
+          <template #cv_editor >
           </template>
         </div>
       </div>

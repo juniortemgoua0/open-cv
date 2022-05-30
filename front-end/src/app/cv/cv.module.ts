@@ -14,9 +14,7 @@ import {EditorButtonOptionComponent} from './shared/editor-button-option/editor-
 import {DisplayEditorOptionDirective} from './shared/display-editor-option.directive';
 import {DialogEditSectionComponent} from './shared/dialog-edit-section/dialog-edit-section.component';
 import {DialogAddSectionComponent} from './shared/dialog-add-section/dialog-add-section.component';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatNativeDateModule} from "@angular/material/core";
+import { DialogRecommandationComponent } from './shared/dialog-recommandation/dialog-recommandation.component';
 
 @NgModule({
   declarations: [
@@ -32,14 +30,11 @@ import {MatNativeDateModule} from "@angular/material/core";
     EditorButtonOptionComponent,
     DisplayEditorOptionDirective,
     DialogEditSectionComponent,
-    DialogAddSectionComponent
+    DialogAddSectionComponent,
+    DialogRecommandationComponent
   ],
   imports: [
     SharedModule,
-    CvRoutingModule,
-    MatDialogModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
   ]
 })
 export class CvModule {

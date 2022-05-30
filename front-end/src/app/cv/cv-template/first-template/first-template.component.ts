@@ -13,9 +13,9 @@ import {filter, map, Observable} from "rxjs";
   templateUrl: './first-template.component.html',
   styleUrls: ['./first-template.component.scss']
 })
-export class FirstTemplateComponent implements OnInit, CvTemplate {
-  userProfileId!: any;
-  jobProfileId!: any;
+export class FirstTemplateComponent implements OnInit {
+  userProfile: any;
+  jobProfile!: Observable<any>;
   idInfo!: { userProfileId: string; jobProfileId: string };
 
   constructor(
@@ -34,34 +34,30 @@ export class FirstTemplateComponent implements OnInit, CvTemplate {
       }
     )
     console.log("userProfileId => "+ this.idInfo.userProfileId , "jobProfileId => " + this.idInfo.jobProfileId)
-    this.jobProfileService.getOneJobProfile(this.idInfo.jobProfileId).subscribe({
-      next: value => {
-        console.log("job profile =>", value)
-      },
-      error: err => console.log(err)
-      }
-    )
-
-    this.userProfileService.getUserProfile(this.idInfo.userProfileId).subscribe({
-      next: value => {
-        console.log('user profil => ' + value)
-      },
-      error: err => console.log(err)
-    })
+    this.jobProfile = this.jobProfileService.getOneJobProfile(this.idInfo.jobProfileId)
+    // this.jobProfileService.getOneJobProfile(this.idInfo.jobProfileId).subscribe(
+    //   v => console.log(v)
+    // )
+    // this.userProfileService.getUserProfile(this.idInfo.userProfileId).subscribe({
+    //   next: value => {
+    //     console.log('user profil => ' + value)
+    //   },
+    //   error: err => console.log(err)
+    // })
   }
 
-  getJobProfile(jobProfileId: string): void {
-    this.jobProfileService.getAllJobProfile(this.userService.currentUser.id).pipe(
-      map((value) => {
-        return value.find(v => v._id === jobProfileId)
-      })
-    ).subscribe(
-      v => {
-        console.log('job Profile',v)
-        this.jobProfileId = v
-      }
-    )
-  }
+  // getJobProfile(jobProfileId: string): void {
+  //   this.jobProfileService.getAllJobProfile(this.userService.currentUser.id).pipe(
+  //     map((value) => {
+  //       return value.find(v => v._id === jobProfileId)
+  //     })
+  //   ).subscribe(
+  //     v => {
+  //       console.log('job Profile',v)
+  //       this.jobProfileId = v
+  //     }
+  //   )
+  // }
 
   getUserProfile(userId: string): void {
 

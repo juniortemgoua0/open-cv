@@ -37,7 +37,12 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/jquery-3.5.1.min.js",
+              "src/assets/kendo.all.min.js",
+              "src/assets/jszip.min.js",
+              "src/assets/app.js"
+            ]
           },
           "configurations": {
             "production": {

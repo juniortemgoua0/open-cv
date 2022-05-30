@@ -34,10 +34,9 @@ export class CvEditorComponent implements OnInit {
       v => {
         this.currentJobProfileId = v[v.length - 1].path
         this.jobProfileService.getAllJobProfile(this.userService.currentUser.id)
-        // console.log("userProfileId => "+ this.currentJobProfileId , "jobProfileId => " + this.userService.currentUser.id)
+        console.log("userProfileId => "+ this.currentJobProfileId , "jobProfileId => " + this.userService.currentUser.id)
       }
     );
-
   }
   onclick() {
     this.cv_container.clear();

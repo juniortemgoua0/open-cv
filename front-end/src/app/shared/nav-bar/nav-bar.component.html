@@ -4,7 +4,9 @@
   <div>
     <button routerLink="/home" routerLinkActive="active" class="fs-6 " mat-button>Accueil</button>
     <button routerLink="/models" class="fs-6 " routerLinkActive="active" mat-button>Nos modeles</button>
-    <button class="fs-6 " routerLink="/user-profile/welcome" routerLinkActive="active" mat-button>Profile utilisateur</button>
+    <button class="fs-6 " routerLink="/user-profile/welcome" routerLinkActive="active" mat-button>Profile utilisateur
+    </button>
+
     <button class="fs-6 " routerLink="/about" routerLinkActive="active" mat-button>A propos</button>
   </div>
   <ng-container *ngIf="!(isLogging | async) else dashboard_button">

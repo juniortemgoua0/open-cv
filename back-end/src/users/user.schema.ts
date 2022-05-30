@@ -15,7 +15,7 @@ export class User {
   @IsNotEmpty()
   @IsEmail()
   @Prop({ required: true })
-  email: string;
+  email: string
 
   @IsNotEmpty()
   @IsString()

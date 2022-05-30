@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-sidebar.component.scss']
 })
 export class DashboardSidebarComponent implements OnInit {
-  host: boolean = false;
+  host: boolean = true;
 
   constructor() { }
 

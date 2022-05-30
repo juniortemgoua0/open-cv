@@ -16,6 +16,7 @@ import {HomeSectionTreeComponent} from "./home/home-section-tree/home-section-tr
 import {HomeSectionFourComponent} from "./home/home-section-four/home-section-four.component";
 import { CvTemplateComponent } from './cv-template/cv-template.component';
 import { CvTemplateControlDirective } from './cv-template-control.directive';
+import {CvRoutingModule} from "../cv/cv-routing.module";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,8 @@ import { CvTemplateControlDirective } from './cv-template-control.directive';
     RouterModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CvRoutingModule,
+
   ],
   exports: [
     CommonModule,
@@ -53,7 +56,8 @@ import { CvTemplateControlDirective } from './cv-template-control.directive';
     HomeSectionFourComponent,
     AboutPageComponent,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CvRoutingModule,
   ]
 })
 export class SharedModule {

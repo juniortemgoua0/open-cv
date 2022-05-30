@@ -13,6 +13,7 @@ import { CreateProfileComponent } from './user-profil/create-profile/create-prof
 import { WelcomeComponent } from './user-profil/welcome/welcome.component';
 import {StepCountComponent} from "./shared/step-count/step-count.component";
 import {WhatYouDoComponent} from "./user-profil/what-you-do/what-you-do.component";
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 @NgModule({
   declarations: [
@@ -24,10 +25,11 @@ import {WhatYouDoComponent} from "./user-profil/what-you-do/what-you-do.componen
     WhatYouDoComponent,
     StepCountComponent
   ],
-  imports: [
-    SharedModule,
-    UsersRoutingModule,
-  ],
+    imports: [
+        SharedModule,
+        UsersRoutingModule,
+        MatDatepickerModule,
+    ],
   exports : []
 })
 export class UsersModule { }

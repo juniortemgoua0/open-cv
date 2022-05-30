@@ -2,4 +2,11 @@
   <app-step-count [countState]="3"></app-step-count>
 </div>
 
-<button (click)="onClick();"></button>
+<div class="w-100 d-flex justify-content-end mt-3">
+  <button routerLink="" mat-flat-button
+          style="height: 50px; background-color: var(--primary-color); color: white"
+          class="px-4"
+          (click)="onClick()">
+    Sauvegarder
+  </button>
+</div>

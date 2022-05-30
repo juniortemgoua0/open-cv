@@ -10,7 +10,7 @@ import { UsersService } from "../users/users.service";
 @Injectable()
 export class AuthService {
   constructor(
-    @InjectModel("User") private UserModel: Model<UserDocument>,
+    @InjectModel("User") private readonly UserModel: Model<UserDocument>,
     private jwtService: JwtService,
     private userService: UsersService,
   ) {

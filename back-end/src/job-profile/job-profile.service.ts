@@ -56,6 +56,7 @@ export class JobProfileService {
   async createJobProfile(jobProfile: JobProfile, idUser: string) {
     const createdJobProfile = new this.JobProfileModel(jobProfile);
     const newJobProfile = await createdJobProfile.save();
+
     await this.UserProfileModel.findByIdAndUpdate(idUser, {
       $push: {
         jobProfile: newJobProfile
@@ -64,6 +65,7 @@ export class JobProfileService {
       new: true,
       upsert: true
     });
+
     await this.JobProfileModel.findByIdAndUpdate(newJobProfile._id, {
       $set: {
         userId: idUser

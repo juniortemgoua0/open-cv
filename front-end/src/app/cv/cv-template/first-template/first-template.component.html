@@ -1,4 +1,4 @@
-<div class="w-100 h-100  d-flex" #template_cv>
+<div class="w-100 h-100  d-flex" #template_cv id="container_cv">
   <div class="col-4 h-100  d-flex flex-column py-3 text-white" style="background-color: #38a388">
     <div class="fs-3 d-flex flex-column px-3 fw-bold">
       <span class="mb-3">Junior</span> <span>Temgoua</span>
@@ -101,7 +101,13 @@
   </div>
   <div class="col-8 h-100 p-3">
     <div class="position-relative w-100" appDisplayEditorOption>
-      <app-editor-button-option section="accroche"></app-editor-button-option>
+      <div class="w-100 position-relative">
+        <app-editor-button-option section="accroche"></app-editor-button-option>
+        <div class="mt-2 w-100 border-bottom border-top py-2 fs-6 fw-bold"
+             style="color: #38a388">
+          Accroche
+        </div>
+      </div>
       <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi corporis debitis dolorem dolorum ducimus
         eveniet, excepturi, expedita molestias natus, neque nesciunt nisi provident qui rem unde vero! Architecto, cum.
       </div>
@@ -115,52 +121,22 @@
         <app-editor-button-option section="experience"></app-editor-button-option>
         <div class="mt-2 w-100 border-bottom border-top py-2 fs-6 fw-bold"
              style="color: #38a388">
-
           Experience Professionnelle
         </div>
       </div>
 
-<ng-container *ngIf=" ">
-  yoooooooooooooooooooooo
-</ng-container>
-      <ng-template #experience_bloc>
-        <div class="w-100 d-flex mt-2">
-          <div class="col-2 d-flex flex-column"><span>01/2012-</span> <span>05/2020</span></div>
-          <div class="col-10 d-flex flex-column">
-            <span class="fw-bold fs-6">Responsable commercial B2B</span>
-            <span style="font-size: 14px; font-style: italic; font-weight: 500">cellnex Telecom, <span class="fw-light">Paris</span></span>
-            <ul>
-              <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
-              <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
-              <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
-            </ul>
-
-            <span style="font-size: 14px; font-weight: 500">Resultats majeurs : </span>
-            <ul>
-              <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
-              <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
-              <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
-            </ul>
+      <ng-container *ngIf="(jobProfile | async)">
+        <div class="w-100 d-flex mt-2" *ngFor="let exp of (jobProfile | async)?.experience">
+          <div class="col-3 d-flex flex-column"><span>{{exp.startDate | date}}-</span> <span> {{exp.endDate | date}}-</span></div>
+          <div class="col-9 d-flex flex-column">
+            <span class="fw-bold fs-6">{{exp.function}}</span>
+            <span style="font-size: 14px; font-style: italic; font-weight: 500">{{exp.organisation}} </span>
+            <div>
+             {{exp.description}}
+            </div>
           </div>
         </div>
-
-        <div class="w-100 d-flex mt-2">
-          <div class="col-2 d-flex flex-column"><span>01/2012-</span> <span>05/2020</span></div>
-          <div class="col-10 d-flex flex-column">
-            <span class="fw-bold fs-6">Responsable commercial B2B</span>
-            <span style="font-size: 14px; font-style: italic; font-weight: 500">cellnex Telecom, <span class="fw-light">Paris</span></span>
-            <ul>
-              <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
-              <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
-            </ul>
-
-            <span style="font-size: 14px; font-weight: 500">Resultats majeurs : </span>
-            <ul>
-              <li>Developper le portefeuille commercial (B2B) et fideliser lal clientele</li>
-            </ul>
-          </div>
-        </div>
-      </ng-template>
+      </ng-container>
 
     </div>
 
@@ -172,23 +148,16 @@
           Formation
         </div>
       </div>
-      <div class="w-100 d-flex mt-2">
-        <div class="col-2 d-flex flex-column"><span>01/2012-</span> <span>05/2020</span></div>
-        <div class="col-10 d-flex flex-column">
-          <span class="fw-bold fs-6">Licence professionnelle cormmerce</span>
-          <span style="font-size: 14px; font-style: italic; font-weight: 500">cellnex Telecom, <br> <span
-            class="fw-light">Paris</span></span>
-        </div>
-      </div>
 
-      <div class="w-100 d-flex mt-2">
-        <div class="col-2 d-flex flex-column"><span>01/2012-</span> <span>05/2020</span></div>
-        <div class="col-10 d-flex flex-column">
-          <span class="fw-bold fs-6">BTS NRC (Negociation Relation Client)</span>
-          <span style="font-size: 14px; font-style: italic; font-weight: 500">cellnex Telecom, <br> <span
-            class="fw-light">Paris</span></span>
+      <ng-container *ngIf="(jobProfile | async)">
+        <div class="w-100 d-flex mt-2" *ngFor="let formation of (jobProfile | async)?.formation">
+          <div class="col-3 d-flex flex-column"><span>{{formation.startDate | date}}</span> <span>{{formation.startDate | date}}</span></div>
+          <div class="col-9 d-flex flex-column">
+            <span class="fw-bold fs-6">{{ formation.diploma}}</span>
+            <span style="font-size: 14px; font-style: italic; font-weight: 500">{{formation.school}},</span>
+          </div>
         </div>
-      </div>
+      </ng-container>
 
     </div>
 
@@ -201,14 +170,15 @@
         </div>
       </div>
 
-      <div class="w-100 d-flex mt-2">
-        <div class="col-2 d-flex flex-column"></div>
-        <div class="col-10 d-flex flex-column">
-          <span class="mt-2">Developper le portefeuille commercial (B2B) et fideliser</span>
-          <span class="mt-2">Developper le portefeuille commercial (B2B) et fideliser</span>
-          <span class="mt-2">Developper le portefeuille commercial (B2B) et fideliser</span>
+      <ng-container *ngIf="(jobProfile | async)">
+        <div class="w-100 d-flex mt-2">
+          <div class="col-3 d-flex flex-column"></div>
+          <div class="col-9 d-flex flex-column">
+            <span class="mt-2" *ngFor="let competence of ( jobProfile | async)?.competence">{{competence.name}}</span>
+          </div>
         </div>
-      </div>
+      </ng-container>
+
     </div>
 
   </div>

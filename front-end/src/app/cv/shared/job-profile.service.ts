@@ -3,6 +3,7 @@ import {UserService} from "../../users/shared/user.service";
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, map, Observable, switchMap} from "rxjs";
 import {AuthService} from "../../auth/shared/auth.service";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class JobProfileService {
   constructor(
     private userService: UserService,
     private authService: AuthService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
   }
 
@@ -48,7 +50,11 @@ export class JobProfileService {
     console.log(currentJobProfileId , value)
     this.http.post<any>('http://localhost:3000/job-profile/add-experience/'+currentJobProfileId , value).subscribe(
       {
-        next: v => this._jobProfile.next(v),
+        next: v => {
+          console.log(v)
+          this._jobProfile.next(v);
+          this.router.navigateByUrl('/cv-editor/edit/'+currentJobProfileId)
+        },
         error: err => console.log(err)
       }
     )
@@ -58,7 +64,10 @@ export class JobProfileService {
     console.log(currentJobProfileId , value)
     this.http.post<any>('http://localhost:3000/job-profile/add-formation/'+currentJobProfileId , value).subscribe(
       {
-        next: v => this._jobProfile.next(v),
+        next: v => {
+          this._jobProfile.next(v);
+          this.router.navigateByUrl('/cv-editor/edit/'+currentJobProfileId)
+        },
         error: err => console.log(err)
       }
     )
@@ -68,7 +77,10 @@ export class JobProfileService {
     console.log(currentJobProfileId , value)
     this.http.post<any>('http://localhost:3000/job-profile/add-competence/'+currentJobProfileId , value).subscribe(
       {
-        next: v => this._jobProfile.next(v),
+        next: v => {
+          this._jobProfile.next(v);
+          this.router.navigateByUrl('/cv-editor/edit/'+currentJobProfileId)
+        },
         error: err => console.log(err)
       }
     )
